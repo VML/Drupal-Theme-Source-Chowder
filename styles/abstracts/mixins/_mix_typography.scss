@@ -1,0 +1,73 @@
+// === h1 === //
+@mixin type-h1($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === h2 === //
+@mixin type-h2($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === h3 === //
+@mixin type-h3($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === h4 === //
+@mixin type-h4($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === h5 === //
+@mixin type-h5($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === h6 === //
+@mixin type-h6($family: $font-times-new-roman) {
+  font-family: $family;
+  font-weight: 900;
+  letter-spacing: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+// === p === //
+@mixin type-p($family: $font-arial) {
+  font-family: $family;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+}
+
+@mixin type-link() {
+  color: $color-gray-medium;
+  font-weight: 500;
+  text-decoration: none;
+}

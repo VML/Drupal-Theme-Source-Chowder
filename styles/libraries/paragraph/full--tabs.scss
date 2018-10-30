@@ -1,0 +1,42 @@
+@charset 'UTF-8';
+
+// Globals
+@import '../../globals';
+
+// Component
+.component-tabs {
+
+  & > .component-tabs__nav {
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      list-style: none;
+      margin-bottom: 0;
+    }
+  }
+
+  // @todo need styles for non-js-initialized tabs.
+
+  &.component-tabs--horizontal {
+    & > .component-tabs__nav {
+      display: flex;
+      flex-direction: row;
+
+      li {
+        border: 1px solid transparent;
+        padding: 1em;
+
+        &[aria-selected='true'] {
+          border-color: $color-gray-medium;
+        }
+      }
+    }
+
+    & > .component-tabs__content {
+      border: 1px solid $color-gray-medium;
+      padding: 1em;
+    }
+  }
+}

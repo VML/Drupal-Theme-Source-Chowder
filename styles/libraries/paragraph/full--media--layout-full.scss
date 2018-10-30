@@ -1,0 +1,14 @@
+@charset 'UTF-8';
+
+// Globals
+@import '../../globals';
+
+// Component
+.component-media--layout-full {
+  .component-media__content {
+    figure {
+      display: block;
+      min-width: 100%;
+    }
+  }
+}

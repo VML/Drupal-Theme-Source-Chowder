@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Remove focus outline from all block and container elements by default.
+ */
+article:focus,
+details:focus,
+div:focus,
+header:focus,
+main:focus,
+figure:focus,
+figcaption:focus,
+section:focus,
+summary:focus,
+table:focus,
+tbody:focus,
+thead:focus {
+  outline: none;
+}
+
+/**
+ * Basic body styles
+ */
+body {
+  background-color: $color-white;
+}
+
+main {
+  outline: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+  width: auto;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+// Make tablet toolbar hover over page instead of pushing all content over.
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin-left: 0 !important;
+}
+
+// Add background to node-preview container.
+.node-preview-container {
+  background: #FFFFFF;
+  background: rgba(255, 255, 255, .8);
+}
+
+.page-node-type-press-release .dialog-off-canvas-main-canvas {
+  background: $color-white;
+}

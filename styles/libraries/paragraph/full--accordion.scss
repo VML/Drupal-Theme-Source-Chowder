@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+// Globals
+@import '../../globals';
+
+// Component
+.component-accordion {
+  .component-accordion__content {
+    border: 1px solid $color-gray-light;
+  }
+
+  .component-accordion-item__title {
+    background-color: $color-gray-lighter;
+    border-bottom: 1px solid $color-gray-light;
+    cursor: pointer;
+    padding: 1em;
+
+    &:focus {
+      background-color: $color-gray-light;
+    }
+  }
+
+  .component-accordion-item__content {
+    border-bottom: 1px solid $color-gray-light;
+    padding: 1em;
+  }
+}

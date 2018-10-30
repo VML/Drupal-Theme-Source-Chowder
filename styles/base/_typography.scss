@@ -1,0 +1,61 @@
+/**
+ * Basic typography style for copy text
+ */
+html {
+  font-size: 100%;
+}
+
+body {
+  color: $color-gray-dark;
+  font-family: $font-arial;
+  font-weight: normal;
+  line-height: 1.75;
+}
+
+h1,
+.page-title {
+  @include type-h1;
+}
+
+h2 {
+  @include type-h2;
+}
+
+h3 {
+  @include type-h3;
+}
+
+h4 {
+  @include type-h4;
+}
+
+h5 {
+  @include type-h5;
+}
+
+p {
+  @include type-p;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+main {
+  a {
+    @include type-link;
+  }
+
+  ul,
+  ol {
+    @include type-p;
+  }
+
+  li {
+    margin-bottom: 1em;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+}
