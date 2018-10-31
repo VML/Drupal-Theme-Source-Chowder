@@ -1,2 +1,2 @@
-# Drupal Theme Source: Chowder
-Theme Source files for the "Chowder" Drupal theme.
+# Drupal Theme Source: Denim
+Theme Source files for the "Denim" Drupal theme.
