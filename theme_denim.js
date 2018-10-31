@@ -1,5 +1,5 @@
 
-var projectName = 'chowder';
+var projectName = 'denim';
 var srcDir = 'themes/' + projectName + '/';
 var destDir = '../docroot/themes/custom/' + projectName + '/';
 
