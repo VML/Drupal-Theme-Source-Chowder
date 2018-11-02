@@ -1,30 +1,64 @@
 // -----------------------------------------------------------------------------
-// This file contains very basic styles.
+// Base: Base
+// Basic site styles
 // -----------------------------------------------------------------------------
+
+/**
+ * Body font sizing and base
+ */
+@at-root {
+  @viewport {
+    width: device-width;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  font-size: 2.5vw;
+
+  @include media('>=420px') {
+    font-size: 2vw;
+  }
+  @include media('>=sm') {
+    font-size: 1.7vw;
+  }
+  @include media('>=md') {
+    font-size: 1.1vw;
+  }
+  @include media('>=lg') {
+    font-size: 0.9vw;
+  }
+  @include media('>=xl') {
+    font-size: 0.8vw;
+  }
+}
+
+body {
+  @include setfont(default);
+  background-color: setcolor(light);
+  color: setcolor(dark);
+  font-size: rem(14px);
+  line-height: $body-line-height;
+}
 
 html,
 body {
   height: 100%;
-  font-size: 62.5%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-  padding: 0;
 }
 
 /**
- * Set up a decent box model on the root element
- */
-html {
-  box-sizing: border-box;
-}
-
-/**
- * Make all elements from the DOM inherit from the parent box-sizing
+ * Box sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
+
+// Set up a decent box model on the root element
+html {
+  box-sizing: border-box;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
 *,
 *::before,
 *::after {
@@ -53,7 +87,7 @@ thead:focus {
  * Basic body styles
  */
 body {
-  background-color: $color-white;
+  background-color: setcolor(light);
 }
 
 main {
@@ -84,10 +118,10 @@ body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
 
 // Add background to node-preview container.
 .node-preview-container {
-  background: #FFFFFF;
-  background: rgba(255, 255, 255, .8);
+  background: setcolor(light);
+  background: rgba(setcolor(light), 0.8);
 }
 
 .page-node-type-press-release .dialog-off-canvas-main-canvas {
-  background: $color-white;
+  background: setcolor(light);
 }

@@ -1,0 +1,104 @@
+// -----------------------------------------------------------------------------
+// Abstracts/Variables: Typography
+// Global typography for site
+// -----------------------------------------------------------------------------
+
+/**
+ * Root Font Sizing
+ */
+
+// <html> and <body> font sizes
+$html-font-size: 62.5% !default;
+$body-font-size: 16px !default;
+$body-line-height: 1.625 !default;
+
+// Functions
+$em-base-multiplyer: $body-font-size !default;
+$font-size-base-rem: 10px !default;
+
+/**
+ * Type sets
+ * Defines a type grouping that can be looped over and generate utility classes
+ */
+$type-sets: (
+  h1: (
+    base: (
+      font-size: rem(45px)
+    ),
+    md: (
+      font-size: rem(55px),
+      line-height: 1.3
+    ),
+    lg: (
+      font-size: rem(65px)
+    )
+  ),
+  h2: (
+    base: (
+      font-size: rem(34px)
+    ),
+    lg: (
+      font-size: rem(55px),
+      line-height: 1.28
+    )
+  ),
+  h3: (
+    base: (
+      font-size: rem(26px)
+    ),
+    lg: (
+      font-size: rem(34px),
+      line-height: 1.28
+    )
+  ),
+  h4: (
+    base: (
+      font-size: rem(22px)
+    ),
+    lg: (
+      font-size: rem(26px),
+      line-height: 1.2
+    )
+  ),
+  h5: (
+    base: (
+      font-size: rem(17px)
+    ),
+    md: (
+      font-size: rem(21px),
+      line-height: 1.35
+    )
+  ),
+  meta: (
+    base: (
+      font-size: rem(11px),
+      letter-spacing: 0.15em,
+      text-transform: uppercase
+    )
+  ),
+  xs: (
+    base: (
+      font-size: 0.75em
+    )
+  ),
+  sm: (
+    base: (
+      font-size: 0.875em
+    )
+  ),
+  base: (
+    base: (
+      font-size: 1em
+    )
+  ),
+  lg: (
+    base: (
+      font-size: 1.125em
+    )
+  ),
+  xl: (
+    base: (
+      font-size: 1.25em
+    )
+  )
+) !default;

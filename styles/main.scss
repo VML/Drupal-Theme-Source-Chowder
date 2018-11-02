@@ -1,9 +1,30 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Main
+// The default stylesheet that compiled and used by browsers
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import 'globals';
 
-// Base type
-@import 'base/normalize';
-@import 'base/base';
-@import 'base/typography';
+/**
+ * Fonts
+ * An import of all @font-face decelerations
+ */
+// @import '';
+
+/**
+ * Base
+ * An import for basic site setup
+ */
+@import 'base/imports';
+
+/**
+ * Regions
+ * An import for region specific styles
+ */
+@import 'regions/imports';

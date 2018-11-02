@@ -1,17 +1,26 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: hero slide
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
+/**
+ * Component
+ */
 $component-hero-title-height: 42vw;
 $component-hero-title-height-max: 29rem;
 $component-hero-title-height-min: 20rem;
 
-// Component
 .component-hero-slide,
 .component-hero-slide.slick-slide {
   // The "!important" tags are set to override slick-slider styles.
-  display: flex !important;
+  @include flex() !important;
   height: $component-hero-title-height;
   max-height: $component-hero-title-height-max;
   min-height: $component-hero-title-height-min;

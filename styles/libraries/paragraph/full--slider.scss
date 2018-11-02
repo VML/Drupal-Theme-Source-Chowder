@@ -1,11 +1,19 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: slider
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
-// Component
+/**
+ * Component
+ */
 .component-slider {
-
   .component-slider__content {
     // Initial styles set.
     &:not(.slick-initialized) {
@@ -68,7 +76,7 @@
 
     .component-slider-slide__figcaption {
       bottom: 5vh;
-      color: $color-white;
+      color: setcolor(light);
       position: absolute;
       left: 5%;
       z-index: 2;
@@ -77,12 +85,12 @@
 
         line-height: 1;
         margin-bottom: 0;
-        text-shadow: 0 0 10px $color-black;
+        text-shadow: 0 0 10px setcolor(dark);
       }
 
       .component-slider-slide-photo__content p {
         font-size: 1rem;
-        text-shadow: 0 0 10px $color-black;
+        text-shadow: 0 0 10px setcolor(dark);
       }
     }
   }
@@ -92,13 +100,13 @@
     .slick-track {
       height: 80vh;
 
-      //@include mq-medium('up') {
-      //  height: 60vh;
-      //}
-      //
-      //@include mq-large('up') {
-      //  height: auto;
-      //}
+      @include media('>=md') {
+        height: 60vh;
+      }
+
+      @include media('>=lg') {
+        height: auto;
+      }
     }
 
     .slick-next {

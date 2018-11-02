@@ -1,0 +1,116 @@
+// -----------------------------------------------------------------------------
+// Abstracts/Mixin: Typography
+// Global typography for site
+// Place on elements as desired
+//
+// Options:
+// • $max-font(value = width) - largest font size
+// • $min-font(value = width) - smallest font size
+// • $family(value = variable) - font-family
+// • $weight(value = variable) - font-weight
+// • $letter(value = width) - letter-spacing
+// • $line(value = height) - line-height
+// • $transform(value = text-transform values) - text-transform
+// • $max-screen(value = width) - max screen width to stop fluid calc
+// • $min-screen(value = width) - min screen width to stop fluid calc
+//
+// === h1 === //
+// @include type-h1();
+//
+// === h2 === //
+// @include type-h2();
+//
+// === h3 === //
+// @include type-h4();
+//
+// === h4 === //
+// @include type-h4();
+//
+// === h5 === //
+// @include type-h5();
+//
+// === h6 === //
+// @include type-h6();
+//
+// === paragraph plus === //
+// @include type-p-plus();
+//
+// === paragraph === //
+// @include type-p();
+//
+// === paragraph minus === //
+// @include type-p-minus();
+//
+// === type-base === //
+// base for all type mixins
+// * used only in this file
+//
+// -----------------------------------------------------------------------------
+
+@mixin type-h1() {
+  @include get-typeset(h1);
+  @include setfont(brand, $fw-bold);
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// === h2 === //
+@mixin type-h2() {
+  @include get-typeset(h2);
+  @include setfont(brand, $fw-bold);
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// === h3 === //
+@mixin type-h3() {
+  @include get-typeset(h3);
+  @include setfont(brand, $fw-bold);
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// === h4 === //
+@mixin type-h4() {
+  @include get-typeset(h4);
+  @include setfont(brand, $fw-regular);
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// === h5 === //
+@mixin type-h5() {
+  @include get-typeset(h5);
+  @include setfont(brand, $fw-regular);
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+// === p === //
+@mixin type-p() {
+  @include get-typeset(base);
+  @include setfont(default, $fw-regular);
+  font-weight: normal;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+// === p minus === //
+@mixin type-p-minus() {
+  @include get-typeset(sm);
+  @include setfont(default, $fw-regular);
+  font-weight: normal;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+

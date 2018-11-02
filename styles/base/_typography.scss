@@ -1,54 +1,49 @@
-/**
- * Basic typography style for copy text
- */
-html {
-  font-size: 100%;
-}
-
-body {
-  color: $color-gray-dark;
-  font-family: $font-arial;
-  font-weight: normal;
-  line-height: 1.75;
-}
+// -----------------------------------------------------------------------------
+// Base: Typography
+// Applies global typography variables and mixins to elements and classes
+// -----------------------------------------------------------------------------
 
 h1,
-.page-title {
-  @include type-h1;
+.page-title,
+.type-h1 {
+  @include type-h1();
 }
 
-h2 {
-  @include type-h2;
+h2,
+.type-h2 {
+  @include type-h2();
 }
 
-h3 {
-  @include type-h3;
+h3,
+.type-h3 {
+  @include type-h3();
 }
 
-h4 {
-  @include type-h4;
+h4,
+.type-h4 {
+  @include type-h4();
 }
 
-h5 {
-  @include type-h5;
+h5,
+.type-h5 {
+  @include type-h5();
 }
 
 p {
-  @include type-p;
+  @include type-p();
 
   &:first-of-type {
     margin-top: 0;
   }
 }
 
+.type-p-minus {
+  @include type-p-minus();
+}
+
 main {
   a {
-    @include type-link;
-  }
-
-  ul,
-  ol {
-    @include type-p;
+    @include link-base();
   }
 
   li {
@@ -56,6 +51,29 @@ main {
   }
 
   strong {
-    font-weight: 500;
+    font-weight: $fw-bold;
   }
 }
+
+code {
+  @include setfont(mono, $fw-regular);
+  @include get-typeset('xs');
+  background-color: setcolor(medium, 20);
+  display: block;
+  margin: $gap-vertical-sm 0 $gap-vertical-md;
+  padding: 1em;
+  white-space: pre-wrap;
+}
+
+.font-default {
+  @include setfont(default);
+}
+
+.font-brand {
+  @include setfont(brand);
+}
+
+.font-mono {
+  @include setfont(mono);
+}
+
