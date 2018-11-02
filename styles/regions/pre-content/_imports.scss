@@ -1,10 +1,6 @@
 // -----------------------------------------------------------------------------
-// Abstracts: Functions
-// This file contains all application-wide Sass functions
+// Regions: Content
+// An import of all things for the content region
 // -----------------------------------------------------------------------------
 
-@import
-'asset-pathing',
-'get-em',
-'get-rem',
-'set-color';
+@import 'base';
