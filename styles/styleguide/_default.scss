@@ -3,6 +3,7 @@
 // Default styleguide layout styles
 // -----------------------------------------------------------------------------
 
+$sg-menu-width: 35rem;
 
 .sg {
   word-wrap: break-word;
@@ -35,7 +36,7 @@
 
 .sg-menu-toggle {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 1;
 
@@ -56,6 +57,37 @@
   }
 }
 
+
+// User logged in
+.user-logged-in.jsa-styleguide-menu--open {
+  // menu offset for admin toolbar
+  .sg-menu {
+    padding-top: calc(#{$admin-toolbar} + 2rem);
+  }
+
+  // menu offset for if the tray is open horizontally
+  &.toolbar-horizontal.toolbar-tray-open {
+    .sg-menu {
+      padding-top: calc(#{$admin-toolbar-and-tray-horizontal} + 2rem);
+    }
+  }
+
+  // menu offset for if the tray is open vertically
+  &.toolbar-vertical.toolbar-tray-open.jsa-styleguide-menu--open {
+    .region-header,
+    .region-content,
+    .region-footer {
+      @include media('>=md') {
+        margin-left: calc(#{$sg-menu-width} + #{$admin-tray-vertical});
+      }
+    }
+
+    .sg-menu {
+      left: $admin-tray-vertical;
+    }
+  }
+}
+
 .jsa-styleguide-menu--open {
   overflow: hidden;
 
@@ -67,12 +99,13 @@
   .region-content,
   .region-footer {
     @include media('>=md') {
-      margin-left: 35rem;
+      margin-left: $sg-menu-width;
     }
   }
 
   .sg-menu {
     left: 0;
+    padding-top: 2rem;
   }
 
   .sg-menu-toggle {
