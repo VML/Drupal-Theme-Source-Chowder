@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// Styleguide: Colors
+// Sets up font rows and applies fonts to the classes
+// -----------------------------------------------------------------------------
+
+.sg-fonts__family {
+  br {
+    margin-bottom: 0.25em;
+  }
+
+  .sg-fonts__family-title {
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    word-wrap: break-word;
+
+    + div {
+      font-size: 3rem;
+    }
+  }
+}

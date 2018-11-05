@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// Base: Breadcrumbs
+// Positions and link styles for breadcrumbs block
+// -----------------------------------------------------------------------------
+
+.block-system-breadcrumb-block {
+  ol,
+  ul {
+    @include flex();
+    margin: 0;
+    padding: 2rem 0;
+    list-style: none;
+
+    li {
+      @include flex();
+      @include type-p-minus();
+      line-height: 1;
+      text-transform: capitalize;
+
+      &:not(:last-of-type):after {
+        content: '';
+        border-right: 1px solid setcolor(dark);
+        line-height: 1;
+        margin-right: 0.5em;
+        padding-right: 0.5em;
+      }
+
+      &:last-of-type a {
+        color: setcolor(brand);
+      }
+
+      a {
+        @include link-hover($self: true);
+        color: setcolor(dark);
+        font-weight: $fw-bold;
+        transition: $transition-base;
+      }
+    }
+  }
+}

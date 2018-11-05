@@ -1,9 +1,18 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: hero
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
-// Component
+/**
+ * Component
+ */
 .component-hero {
   .component-hero__content {
     &.slick-initialized {
@@ -20,5 +29,4 @@
       }
     }
   }
-
 }

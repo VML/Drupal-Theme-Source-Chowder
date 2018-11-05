@@ -1,0 +1,8 @@
+// -----------------------------------------------------------------------------
+// Abstracts/Variables: Transition
+// Default transition time, style, and full
+// -----------------------------------------------------------------------------
+
+$transition-base-time: 300ms !default;
+$transition-base-style: ease-in-out !default;
+$transition-base: all $transition-base-time $transition-base-style !default;

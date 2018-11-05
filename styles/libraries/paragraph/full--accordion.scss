@@ -1,9 +1,18 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: accordion
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
-// Component
+/**
+ * Component
+ */
 .component-accordion {
   .component-accordion__content {
     border: 1px solid $color-gray-light;

@@ -1,9 +1,18 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: layout slider
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
-// Component
+/**
+ * Component
+ */
 .component-media--layout-slider {
 
   .component-media__content {
@@ -33,9 +42,9 @@
     iframe {
       height: 100%;
 
-      //@include mq-large('up') {
-      //  height: 460px;
-      //}
+      @include media('>=lg') {
+        height: 460px;
+      }
     }
 
     img {
@@ -51,13 +60,13 @@
     .slick-track {
       height: 80vh;
 
-      //@include mq-medium('up') {
-      //  height: 60vh;
-      //}
-      //
-      //@include mq-large('up') {
-      //  height: auto;
-      //}
+      @include media('>=md') {
+        height: 60vh;
+      }
+
+      @include media('>=lg') {
+        height: auto;
+      }
     }
 
     .slick-next {

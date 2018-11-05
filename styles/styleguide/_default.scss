@@ -1,0 +1,95 @@
+// -----------------------------------------------------------------------------
+// Styleguide: Default
+// Default styleguide layout styles
+// -----------------------------------------------------------------------------
+
+
+.sg {
+  word-wrap: break-word;
+}
+
+.sg-menu {
+  background-color: setcolor(dark);
+  color: setcolor(light);
+  position: fixed;
+  left: -100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 35rem;
+  padding: 4rem 1rem 1rem;
+  max-height: 100vh;
+  overflow-y: scroll;
+  transition: $transition-base;
+
+  p,
+  li {
+    @include type-p-minus();
+  }
+
+  .sg-theme-name {
+    background-color:  setcolor(medium);
+    margin-bottom: 0;
+  }
+}
+
+.sg-menu-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .close {
+    display: none;
+  }
+
+  .open {
+    display: inline-block;
+  }
+}
+
+.jsa-styleguide-menu {
+  .region-header,
+  .region-content,
+  .region-footer {
+    transition: margin-left $transition-base-time $transition-base-style;
+  }
+}
+
+.jsa-styleguide-menu--open {
+  overflow: hidden;
+
+  @include media('>=md') {
+    overflow: inherit;
+  }
+
+  .region-header,
+  .region-content,
+  .region-footer {
+    @include media('>=md') {
+      margin-left: 35rem;
+    }
+  }
+
+  .sg-menu {
+    left: 0;
+  }
+
+  .sg-menu-toggle {
+    .close {
+      display: inline-block;
+    }
+
+    .open {
+      display: none;
+    }
+  }
+}
+
+.sg-theme-name {
+  background-color: setcolor(medium, 20);
+  border-left: 1rem solid setcolor(brand);
+  padding: 0.75em 1em;
+  font-weight: bold;
+  margin: $gap-vertical-sm 0 $gap-vertical-md;
+}

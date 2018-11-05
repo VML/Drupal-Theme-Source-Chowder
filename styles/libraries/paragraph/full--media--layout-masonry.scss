@@ -1,9 +1,18 @@
 @charset 'UTF-8';
 
-// Globals
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: media layout masonry
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
 @import '../../globals';
 
-// Component
+/**
+ * Component
+ */
 .component-media--layout-masonry {
   > .component-media__content {
     > figure {

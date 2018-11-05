@@ -1,6 +1,18 @@
 // -----------------------------------------------------------------------------
-// This file contains imports to all application-wide Sass mixins.
+// Abstracts: Mixins
+// This file contains all application-wide Sass mixins
 // -----------------------------------------------------------------------------
 
 @import
-'mix_typography';
+'button-reset',
+'container',
+'flexbox-prefixing',
+'gap-horizontal',
+'gap-vertical',
+'get-typeset',
+'on-event',
+'links',
+'positionings',
+'set-font',
+'typography',
+'grid';

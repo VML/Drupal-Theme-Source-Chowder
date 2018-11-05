@@ -1,7 +1,14 @@
 // -----------------------------------------------------------------------------
-// This file contains imports to all application-wide Sass variables.
+// Abstracts: Variables
+// An import of all things Sass variables
 // -----------------------------------------------------------------------------
 
 @import
-'var_colors',
-'var_font_families';
+'asset-pathing',
+'breakpoints',
+'colors',
+'font-families',
+'font-weights',
+'transitions',
+'typography',
+'layout';

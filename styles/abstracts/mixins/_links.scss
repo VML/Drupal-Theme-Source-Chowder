@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// Mixin: Links
+// Common link styles
+//
+// === link-hover === //
+// @include link-hover();
+// Option(s):
+// • $self(value = true or false) - default = absolute - apply to element or parent
+// -----------------------------------------------------------------------------
+
+// for mixin use only
+@mixin link-hover-base() {
+  text-decoration: none;
+
+  @include on-event() {
+    text-decoration: underline;
+  }
+}
+
+@mixin link-hover($self: false) {
+  @if $self {
+    @include link-hover-base();
+  } @else {
+    a {
+      @include link-hover-base();
+    }
+  }
+}
+
+@mixin link-base() {
+  @include link-hover($self: true);
+  color: setcolor(brand);
+  font-weight: $fw-regular;
+  transition: $transition-base;
+
+  @include on-event() {
+    color: setcolor(brand, dark);
+  }
+}
