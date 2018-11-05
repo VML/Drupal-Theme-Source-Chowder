@@ -9,6 +9,12 @@ $sg-menu-width: 35rem;
   word-wrap: break-word;
 }
 
+.jsa-styleguide-menu {
+  h1.page-title {
+    @include type-h2();
+  }
+}
+
 .sg-menu {
   background-color: setcolor(dark);
   color: setcolor(light);
@@ -29,7 +35,8 @@ $sg-menu-width: 35rem;
   }
 
   .sg-theme-name {
-    background-color:  setcolor(medium);
+    background-color: setcolor(medium);
+    color: setcolor(light);
     margin-bottom: 0;
   }
 }
@@ -56,7 +63,6 @@ $sg-menu-width: 35rem;
     transition: margin-left $transition-base-time $transition-base-style;
   }
 }
-
 
 // User logged in
 .user-logged-in.jsa-styleguide-menu--open {
