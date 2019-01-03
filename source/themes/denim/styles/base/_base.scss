@@ -1,0 +1,214 @@
+// -----------------------------------------------------------------------------
+// Base: Base
+// Basic site styles
+// -----------------------------------------------------------------------------
+
+/**
+ * Body font sizing and base
+ */
+@at-root {
+  @viewport {
+    width: device-width;
+  }
+}
+
+html {
+  font-size: $html-font-size;
+}
+
+body {
+  @include get-typeset(paragraph);
+  @include setfont($font-default);
+  background-color: $body-bg-color;
+  color: setcolor(dark);
+  font-weight: $fw-medium;
+  line-height: $body-line-height;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/**
+ * Box sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+// Set up a decent box model on the root element
+html {
+  box-sizing: border-box;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Remove focus outline from all block and container elements by default.
+ */
+article:focus,
+details:focus,
+div:focus,
+header:focus,
+main:focus,
+figure:focus,
+figcaption:focus,
+section:focus,
+summary:focus,
+table:focus,
+tbody:focus,
+thead:focus {
+  outline: none;
+}
+
+/**
+ * Basic body styles
+ */
+::-moz-selection {
+  background: setcolor(brand);
+  color: setcolor(brand);
+}
+
+::selection {
+  background: setcolor(brand);
+  color: setcolor(brand);
+}
+
+main {
+  outline: none;
+}
+
+// height for page wrappers so the site spans the full height of the window
+.dialog-off-canvas-main-canvas,
+.page {
+  height: 100%;
+}
+
+// Add margin to system messages.
+.messages {
+  margin: 1em;
+}
+
+// flex on the parent regions wrapper to always keep the footer at the bottom
+.page {
+  @include flex();
+  @include flex-x(flex-direction, column);
+
+  @include bs-ie() {
+    display: block;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+  width: auto;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Drupal Toolbar fixes.
+body.toolbar-loading {
+  padding-top: $admin-toolbar;
+
+  .toolbar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .toolbar-tray {
+    display: none !important;
+  }
+}
+
+// Make tablet toolbar hover over page instead of pushing all content over.
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  margin-left: 0 !important;
+}
+
+// Fix to make tool tray un-"fixed" if toolbar is loading.
+body.toolbar-loading .toolbar-tray {
+  display: none;
+}
+
+// Add background to node-preview container.
+.node-preview-container {
+  background: setcolor(light);
+  background: rgba(setcolor(light), 0.8);
+}
+
+.block-page-title-block {
+  .field--name-field-subtitle {
+    @include type-header(h3, dark, included);
+    margin-bottom: 0;
+  }
+
+  .block-page-title-block__content {
+    @include container($container-md, md, left, false);
+
+    // apply padding to the subtitle and body fields not the parent container
+    > .field--name-field-subtitle,
+    > .field--name-body {
+      padding-top: $gap-vertical-mid;
+    }
+
+    // if there is a subtitle remove the padding from the body field
+    > .field--name-field-subtitle + .field--name-body {
+      padding-top: 0;
+    }
+
+    // if the container and/or body fields are empty then hide them
+    &:empty,
+    > .field--name-body:empty {
+      display: none;
+    }
+  }
+}
+
+// classy to hide contact info
+.contact-info--hidden {
+  .field--name-field-email,
+  .field--name-field-phone,
+  .field--name-field-links-social {
+    display: none;
+  }
+}
+
+.b-error {
+  opacity: 1;
+}
+
+.media--blazy.media--loading::before {
+  -webkit-animation: blazyLoading 2s infinite ease;
+  animation: blazyLoading 2s infinite ease;
+  background: url(asset-path('icon', 'icon-32x32.png'));
+  background-size: contain;
+  filter: blur(.1em);
+  opacity: .7;
+}
+
+@keyframes blazyLoading {
+  0%,
+  30% {
+    transform: rotate(0deg);
+  }
+
+  70%,
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// Base: Helpers
+// This file contains CSS helper classes
+// -----------------------------------------------------------------------------
+
+/**
+ * Hide Text
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ * See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  @include hide-text();
+}
+
+/**
+ * Hide Element
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  @include visually-hidden();
+}
+
+/**
+ * Body lock
+ * Prevents the body from scrolling when class is added to body
+ */
+.jsa-body-lock {
+  overflow: hidden;
+}

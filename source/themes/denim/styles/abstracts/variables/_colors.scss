@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// Abstracts/Variables: Colors
+// Global colors and color map
+// -----------------------------------------------------------------------------
+
+$hex-brand: #0080FF !default;
+
+$colors: (
+  light: (
+    base: #FFFFFF
+  ),
+  dark: (
+    base: #000000
+  ),
+  medium: (
+    base: #333333,
+    60: #999999,
+    40: #DDDDDD,
+    20: #EEEEEE
+  ),
+  brand: (
+    base: $hex-brand,
+    dark: darken($hex-brand, 10%)
+  )
+) !default;

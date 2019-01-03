@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+// Styleguide: Colors
+// Sets up a swatch grid and maps the colors and info to the boxes
+// -----------------------------------------------------------------------------
+
+.sg-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-gap: 2rem;
+  margin-bottom: $gap-vertical-md;
+}
+
+.sg-boxes__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 25vh;
+  position: relative;
+
+  code {
+    margin-bottom: 0;
+  }
+}

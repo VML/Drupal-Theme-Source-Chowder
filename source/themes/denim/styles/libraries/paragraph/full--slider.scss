@@ -1,0 +1,78 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: slider
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Component
+ */
+.component-slider {
+  .component-slider__content {
+    &:not(.slick-initialized) {
+      .component-media__list-item {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .component-slider-slide {
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    max-width: 100vw;
+
+    img,
+    video {
+      display: block;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.component-slider-slide-video,
+.component-slider-slide-photo {
+  @include media('>=md') {
+    margin-right: $gap-horizontal-mid;
+  }
+
+  figcaption {
+    @include container(
+      $width: $container-sm,
+      $align: left
+    );
+    margin-top: $gap-vertical-xsm;
+
+    header {
+      @include type-header(
+        $version: h5,
+        $color: dark,
+        $globals: included
+      );
+    }
+  }
+}
+
+.component-slider-slide-video {
+  .field--name-field-video {
+    width: calc(100vw - (#{$gap-horizontal-md} * 2));
+
+    @include media('>=md') {
+      width: calc(#{$container-md} - (#{$gap-horizontal-mid} * 2));
+    }
+  }
+}

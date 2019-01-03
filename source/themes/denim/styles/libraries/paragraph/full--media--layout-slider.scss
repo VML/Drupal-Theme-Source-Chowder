@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: layout slider
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Component
+ */
+.component-media--layout-slider {
+  .component-media__list {
+    margin: 0;
+    padding: 0;
+
+    &:not(.slick-initialized) {
+      .component-media__list-item {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+
+    .slick-slide .media {
+      height: 100%;
+      margin-bottom: 0;
+      margin-top: 0;
+      position: relative;
+      max-width: 100vw;
+
+      img,
+      video {
+        display: block;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}

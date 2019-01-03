@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: Featured Content - List layout
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Component
+ */
+.component-list-content--layout-list {
+  .component-list-content__content {
+    article {
+      display: block;
+    }
+  }
+}

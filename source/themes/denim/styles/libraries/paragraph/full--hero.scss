@@ -1,0 +1,124 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: hero
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Component
+ */
+.component-hero {
+  @include container-full-width();
+
+  .component-hero__content {
+
+    &:not(.slick-initialized) {
+      .component-hero-slide {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.page-with-hero--light .component-hero .component-hero__content.slick-initialized .slick-arrow:after {
+  color: setcolor(light);
+}
+
+.page-with-hero--dark .component-hero .component-hero__content.slick-initialized .slick-arrow:after {
+  color: setcolor(dark);
+}
+
+// On pages with hero, move hero up to top of page and make the header bg transparent.
+body.page-with-hero {
+  .page {
+    margin-top: $component-hero-title-height;
+  }
+
+  &.header-fixed .page {
+    margin-top: $component-hero-title-height;
+  }
+
+  &.toolbar-fixed {
+    .page {
+      margin-top: calc(#{$component-hero-title-height} - #{$admin-toolbar});
+    }
+
+    &.toolbar-horizontal.toolbar-tray-open .page {
+      margin-top: calc(#{$component-hero-title-height} - #{$admin-toolbar-and-tray-horizontal});
+    }
+  }
+
+  .region-content > .component-hero {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+  .scroll-on-down {
+    @include flex();
+  }
+}
+
+/**
+ * Scroll on down
+ * Pulsing arrow to scroll down the page
+ * Only visible on landing page heroes
+ */
+.scroll-on-down {
+  @include flex-x(align-items, center);
+  @include flex-x(justify-content, center);
+  display: none;
+  height: 5rem;
+  position: absolute;
+  top: calc(100vh - 7rem);
+  width: 100%;
+  z-index: 100;
+}
+
+.scroll-on-down__link {
+  animation-duration: 2s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  animation-name: fadeInDown;
+  animation-timing-function: ease-in-out;
+  color: setcolor(light);
+  font-size: 2rem;
+  line-height: 1;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 1em setcolor(medium, 60);
+  top: 0;
+  transform: rotate(90deg);
+  vertical-align: middle;
+  z-index: 100;
+  @include icon(chevron, before);
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+
+  50% {
+    opacity: 1;
+    top: 2.5rem;
+  }
+
+  100% {
+    opacity: 0;
+    top: 0;
+  }
+}
