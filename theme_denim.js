@@ -16,5 +16,11 @@ module.exports = {
   images: {
     src: [srcDir + 'images/**/*.png', srcDir + 'images/**/*.jpg', srcDir + 'images/**/*.jpeg', srcDir + 'images/**/*.gif'],
     dest: destDir + 'img'
+  },
+  iconFont: {
+    src: [srcDir + 'icons/**/*.svg'],
+    scssFile: '../../../../../../source/' + srcDir + 'styles/vendor/_icons.scss',
+    filePath: '/themes/custom/vmlyrcom/fonts/icons/',
+    dest: destDir + 'fonts/icons'
   }
 };

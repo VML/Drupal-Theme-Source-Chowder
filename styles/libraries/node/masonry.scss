@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Node: Masonry
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Node
+ */
+.node--view-mode-masonry {
+  .node__media {
+    position: relative;
+
+    &:before {
+      @include trbl();
+      background: radial-gradient(ellipse at center, rgba(setcolor(dark), 0) 50%, rgba(setcolor(dark), 0.1) 100%);
+      content: '';
+      transition: $transition-base;
+      z-index: 1;
+    }
+  }
+}

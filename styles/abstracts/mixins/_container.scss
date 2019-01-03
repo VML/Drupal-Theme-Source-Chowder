@@ -9,24 +9,54 @@
 // -----------------------------------------------------------------------------
 
 @mixin container(
-  $width: $container-lg,
-  $breakpoint: md
+  $width: $container-xl,
+  $breakpoint: md,
+  $align: center,
+  $gap-reset: false,
+  $reset: false
 ) {
 
   @include media('>#{$breakpoint}') {
-    margin-left: auto !important;
-    margin-right: auto !important;
     max-width: $width;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
     width: 100%;
+
+    @if $align == center {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    } @else if $align == left {
+      margin-right: auto !important;
+    } @else if $align == right {
+      margin-left: auto !important;
+    } @else {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    @if $gap-reset == true {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    @if $reset == true {
+      margin-left: inherit !important;
+      margin-right: inherit !important;
+      max-width: inherit;
+      width: inherit;
+    }
   }
 }
 
-@mixin container-full-width() {
+@mixin container-full-width($reset: false) {
   left: calc(-50vw + 50%);
   max-width: none;
   position: relative;
   width: 100%;
   width: 100vw;
+
+  @if $reset == true {
+    left: inherit;
+    max-width: inherit;
+    position: inherit;
+    width: inherit;
+  }
 }

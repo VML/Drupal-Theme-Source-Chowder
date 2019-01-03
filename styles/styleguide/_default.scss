@@ -9,30 +9,20 @@ $sg-menu-width: 35rem;
   word-wrap: break-word;
 }
 
-.jsa-styleguide-menu {
-  h1.page-title {
-    @include type-h2();
-  }
-}
-
 .sg-menu {
-  background-color: setcolor(dark);
+  background-color: setcolor(medium, 40);
   color: setcolor(light);
-  position: fixed;
-  left: -100%;
-  right: 0;
-  top: 0;
   bottom: 0;
-  width: 35rem;
-  padding: 4rem 1rem 1rem;
+  font-size: 0.75rem;
+  left: -250%;
   max-height: 100vh;
   overflow-y: scroll;
+  padding: 4rem 1rem 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
   transition: $transition-base;
-
-  p,
-  li {
-    @include type-p-minus();
-  }
+  width: $sg-menu-width;
 
   .sg-theme-name {
     background-color: setcolor(medium);

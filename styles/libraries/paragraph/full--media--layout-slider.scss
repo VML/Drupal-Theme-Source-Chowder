@@ -14,11 +14,12 @@
  * Component
  */
 .component-media--layout-slider {
+  .component-media__list {
+    margin: 0;
+    padding: 0;
 
-  .component-media__content {
-    // Initial styles set.
     &:not(.slick-initialized) {
-      .component-slider-slide {
+      .component-media__list-item {
         display: none;
 
         &:first-child {
@@ -26,57 +27,22 @@
         }
       }
     }
-  }
 
-  figure {
-    height: 100%;
-    margin-bottom: 0;
-    margin-top: 0;
-    position: relative;
-    max-width: 100vw;
-
-    .field {
+    .slick-slide .media {
       height: 100%;
-    }
+      margin-bottom: 0;
+      margin-top: 0;
+      position: relative;
+      max-width: 100vw;
 
-    iframe {
-      height: 100%;
-
-      @include media('>=lg') {
-        height: 460px;
+      img,
+      video {
+        display: block;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        width: 100%;
       }
-    }
-
-    img {
-      display: block;
-      height: 100%;
-      max-width: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .slick-slider {
-    .slick-track {
-      height: 80vh;
-
-      @include media('>=md') {
-        height: 60vh;
-      }
-
-      @include media('>=lg') {
-        height: auto;
-      }
-    }
-
-    .slick-next {
-      right: 1rem;
-      z-index: 1;
-    }
-
-    .slick-prev {
-      left: 1rem;
-      z-index: 1;
     }
   }
 }

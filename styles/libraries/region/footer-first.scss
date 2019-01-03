@@ -1,0 +1,205 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Region: footer first
+// Base layout for the footer first region.
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Region
+ */
+.region-footer {
+  padding-top: rem(150px);
+  margin-top: auto;
+
+  @include media('>=md') {
+    padding-top: rem(200px);
+  }
+
+  .region-footer__content {
+    @include gap-vertical();
+    background-color: setcolor(dark);
+    padding-bottom: $gap-vertical-sm;
+
+    > .region {
+      @include container();
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      margin-top: 0;
+    }
+
+    a {
+      color: setcolor(light);
+      transition: $transition-base;
+
+      @include on-event() {
+        color: setcolor(light);
+      }
+    }
+  }
+
+  .block-system-branding-block {
+    line-height: 1;
+
+    @include media('>=md') {
+      margin-right: 5rem;
+    }
+
+    svg {
+      height: $header-logo-height-fixed-mobile;
+      width: unset;
+
+      @include media('>=md') {
+        height: $header-logo-height-fixed;
+      }
+
+      @include bs-ie() {
+        // pulls the logo to the left to align the snowflake with the container edge
+        transform: translateX(-1.75em);
+      }
+    }
+  }
+}
+
+.region-footer .region-footer-first {
+  position: relative;
+
+  @include media('>=md') {
+    @include flex();
+    @include flex-x(flex, 1 1 auto);
+    @include flex-x(flex-wrap, wrap);
+  }
+
+  .menu--footer {
+    margin-top: $gap-vertical-sm;
+    margin-bottom: $gap-vertical-xsm;
+  }
+
+  .menu--footer,
+  .menu--footer-legal {
+    @include media('>=md') {
+      margin: 0 $gap-horizontal-mid $gap-vertical-sm 0;
+    }
+
+    ul {
+      margin-top: 0;
+
+      @include media('>=md') {
+        margin-top: 0.1rem;
+      }
+    }
+
+    li {
+      margin-top: 0.75em;
+
+      @include media('>=lg') {
+        margin-top: 0.25em;
+      }
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    a {
+      @include type-header(h6, light, included);
+      color: setcolor(light);
+
+      @include on-event() {
+        color: setcolor(light);
+      }
+
+      &:focus {
+        color: setcolor(brand);
+      }
+    }
+  }
+
+  .menu--social {
+    margin-top: $gap-vertical-md;
+
+    @include media('>=md') {
+      margin-top: 0;
+    }
+
+    @include media('>=lg') {
+      margin-left: auto;
+    }
+
+    ul {
+      @include flex();
+      @include flex-x(justify-content, center);
+      margin: 0;
+      width: 100%;
+
+      @include media('>=md') {
+        @include flex-x(justify-content, flex-start);
+        margin-top: 0.65rem;
+      }
+    }
+
+    li {
+      line-height: 1;
+      margin: 0 15vw 0 0;
+
+      @include media('>=md') {
+        margin-right: 2.5rem;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    a {
+      font-size: 0;
+
+      &:before {
+        font-size: 1.5rem;
+      }
+
+      &:focus {
+        color: setcolor(brand);
+      }
+    }
+  }
+
+  .region-footer__content-copyright {
+    color: rgba(setcolor(light), 0.5);
+    font-size: em(12px);
+    font-weight: $fw-regular;
+    letter-spacing: 0.1em;
+    margin-top: $gap-vertical-sm;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include media('>=md') {
+      bottom: 0;
+      margin-top: 0;
+      position: absolute;
+      right: $gap-horizontal-md;
+      text-align: right;
+    }
+
+    @include media('>=lg') {
+      right: 0;
+    }
+
+    p {
+      padding: 0;
+    }
+  }
+}

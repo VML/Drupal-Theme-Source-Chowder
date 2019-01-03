@@ -1,0 +1,29 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Region: content
+// Base layout for the content region.
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Region
+ */
+.region-content {
+  @include gap-vertical(
+    $property: margin,
+    $gap-large: 3.25rem
+  );
+
+  @include bs-ie() {
+    @include gap-vertical(
+      $property: margin,
+      $gap-large: calc(3.25rem + #{$header-height-top})
+    );
+  }
+}

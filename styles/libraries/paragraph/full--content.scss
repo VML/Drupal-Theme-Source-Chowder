@@ -14,14 +14,30 @@
  * Component
  */
 .component-content {
+  .component-content__title,
+  .component-content__content,
+  .component-content__footer {
+    @include container(
+      $width: $container-md,
+      $align: left
+    );
+  }
+
   .component-content__title {
-    @include type-h3();
+    @include type-header(
+      $version: h5,
+      $color: dark,
+      $globals: included
+    );
   }
 
   .component-content__content {
-    @include gap-vertical(
-      $gap-small: $gap-vertical-xsm,
-      $gap-large: $gap-vertical-xsm
-    );
+    li {
+      margin-bottom: 1em;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
   }
 }

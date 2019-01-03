@@ -1,0 +1,10 @@
+// -----------------------------------------------------------------------------
+// Styleguide: Buttons
+// Set up gutters and contrasting block for button secondary
+// -----------------------------------------------------------------------------
+
+.sg-button {
+  @include gap-horizontal();
+  padding-bottom: $gap-vertical-sm;
+  padding-top: $gap-vertical-sm;
+}
