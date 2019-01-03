@@ -1,0 +1,40 @@
+.slick-initialized {
+  .slick-arrow {
+    top: 50%;
+    z-index: 10;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      color: setcolor(light);
+      content: '\25C2';
+      display: block;
+      font-size: 4rem;
+      opacity: 0.5;
+      text-shadow: 0 0 1rem setcolor(dark);
+      transition: $transition-base;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    &.slick-disabled:after {
+      opacity: 0.25;
+    }
+  }
+
+  .slick-next {
+    right: 2.5vw;
+
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .slick-prev {
+    left: 2.5vw;
+  }
+}

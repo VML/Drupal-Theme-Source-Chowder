@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Node: Teaser
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Node
+ */
+.node--view-mode-teaser {
+  position: relative;
+
+  > .link-read-more {
+    @include trbl();
+    z-index: 1;
+  }
+
+  a {
+    position: relative;
+    z-index: 2;
+  }
+}

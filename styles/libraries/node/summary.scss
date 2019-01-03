@@ -1,0 +1,56 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Node: Teaser
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Node
+ */
+.node--view-mode-summary {
+
+  // super title
+  .node__super-title {
+    font-size: 1rem;
+    top: 0;
+  }
+
+  // default title
+  .node__title h2 {
+    @include type-header(h5, dark, excluded);
+    margin-bottom: 0;
+  }
+
+  // title if it is linked
+  .node__title a .field--name-title {
+    @include icon(chevron, after);
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      color: setcolor(brand);
+      font-size: 0.75em;
+      margin-left: 0.25em;
+      transition: $transition-base;
+      transition-delay: $transition-base-time / 2;
+    }
+
+    &:hover:after {
+      color: setcolor(dark);
+    }
+  }
+
+  .node__content .field__items {
+    > .field__item {
+      margin-top: $gap-vertical-xsm;
+    }
+  }
+}

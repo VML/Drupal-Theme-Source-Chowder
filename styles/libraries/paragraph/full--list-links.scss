@@ -1,0 +1,74 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Paragraph: list links
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Component
+ * Base: 16px
+ */
+
+.component-list-links.component-list-links--rotated-header {
+  @include flex();
+  @include flex-x(align-items, flex-start);
+
+  .component-list-links__title {
+    text-align: right;
+    writing-mode: vertical-lr;
+  }
+
+  .component-list-links__list {
+    margin: 0;
+    padding: 0 0 0 2em;
+
+    @include media('>=md') {
+      padding: 0 2em;
+    }
+  }
+}
+
+.component-list-links {
+  &:only-of-type {
+    @include gap-horizontal($gap-small: $gap-horizontal-sm, $gap-large: $gap-vertical-md);
+    @include gap-vertical();
+  }
+
+  .component-list-links__title {
+    @include type-header(h5, dark, included);
+    text-transform: uppercase;
+  }
+
+  .component-list-links__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .component-list-links__list-item {
+    padding-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+
+  .component-list-links__list-item a {
+    @include icon(chevron, after);
+    hyphens: auto;
+
+    &:after {
+      color: setcolor(brand);
+      font-size: 0.75em;
+      margin-left: 0.25em;
+      transition: $transition-base;
+      transition-delay: $transition-base-time / 2;
+    }
+
+    &:hover:after {
+      color: setcolor(dark);
+    }
+  }
+}

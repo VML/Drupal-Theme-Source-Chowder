@@ -5,7 +5,7 @@
 
 $hex-brand: #0080FF !default;
 
-$theme-colors: (
+$colors: (
   light: (
     base: #FFFFFF
   ),
@@ -23,5 +23,3 @@ $theme-colors: (
     dark: darken($hex-brand, 10%)
   )
 ) !default;
-
-$colors: $theme-colors;

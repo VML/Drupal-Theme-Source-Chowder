@@ -8,13 +8,13 @@
  */
 
 // <html> and <body> font sizes
-$html-font-size: 62.5% !default;
+$html-font-size: 100% !default;
 $body-font-size: 16px !default;
 $body-line-height: 1.625 !default;
 
 // Functions
 $em-base-multiplyer: $body-font-size !default;
-$font-size-base-rem: 10px !default;
+$font-size-base-rem: $body-font-size !default;
 
 /**
  * Type sets
@@ -23,57 +23,63 @@ $font-size-base-rem: 10px !default;
 $type-sets: (
   h1: (
     base: (
-      font-size: rem(45px)
+      font-size: em(42px)
     ),
-    md: (
-      font-size: rem(55px),
-      line-height: 1.3
+    sm: (
+      font-size: 8vw
     ),
-    lg: (
-      font-size: rem(65px)
+    xl: (
+      font-size: em(100px)
     )
   ),
   h2: (
     base: (
-      font-size: rem(34px)
+      font-size: em(30px)
     ),
-    lg: (
-      font-size: rem(55px),
-      line-height: 1.28
+    md: (
+      font-size: em(40px)
     )
   ),
   h3: (
     base: (
-      font-size: rem(26px)
+      font-size: em(20px)
     ),
-    lg: (
-      font-size: rem(34px),
-      line-height: 1.28
+    md: (
+      font-size: em(30px)
     )
   ),
   h4: (
     base: (
-      font-size: rem(22px)
+      font-size: em(16px)
     ),
-    lg: (
-      font-size: rem(26px),
-      line-height: 1.2
+    md: (
+      font-size: em(20px)
     )
   ),
   h5: (
     base: (
-      font-size: rem(17px)
-    ),
-    md: (
-      font-size: rem(21px),
-      line-height: 1.35
+      font-size: em(16px)
     )
   ),
-  meta: (
+  h6: (
     base: (
-      font-size: rem(11px),
-      letter-spacing: 0.15em,
-      text-transform: uppercase
+      font-size: em(14px)
+    )
+  ),
+  paragraph: (
+    base: (
+      font-size: em(14px)
+    ),
+    md: (
+      font-size: em(16px)
+    )
+  ),
+  quote: (
+    base: (
+      font-size: em(30px)
+    ),
+    md: (
+      font-size: em(36px)
     )
   ),
   xs: (
@@ -98,7 +104,10 @@ $type-sets: (
   ),
   xl: (
     base: (
-      font-size: 1.25em
+      font-size: em(44px)
+    ),
+    sm: (
+      font-size: em(80px)
     )
   )
 ) !default;

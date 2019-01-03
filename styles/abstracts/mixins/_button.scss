@@ -1,0 +1,116 @@
+// -----------------------------------------------------------------------------
+// Abstracts/Mixin: Button Styles
+// Base button style mixin
+// @include btn-base(), @include btn(primary, secondary)
+// -----------------------------------------------------------------------------
+
+
+$btn-primary: setcolor(dark);
+$btn-primary-hover: setcolor(light);
+
+$btn-secondary: setcolor(light);
+$btn-secondary-hover: setcolor(dark);
+
+// Base button styles
+@mixin btn-base($style: primary) {
+  @include btn-reset();
+  @include type-header(h6, null, included);
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding: 1rem 3rem;
+  position: relative;
+  text-align: center;
+  transition: $transition-base;
+  z-index: 0;
+
+  @include media('>=md') {
+    display: inline-block;
+  }
+
+  @if $style == primary {
+    border: rem(2px) solid $btn-primary;
+    color: $btn-primary;
+
+    @include on-event {
+      color: $btn-primary-hover;
+    }
+  }
+
+  @if $style == secondary {
+    border: rem(2px) solid $btn-secondary;
+    color: $btn-secondary;
+
+    @include on-event() {
+      color: $btn-secondary-hover;
+    }
+  }
+}
+// IF the button is on a div, button, or anchor
+// Use a pseudo for the background fill
+@mixin btn-pseudo($style: primary) {
+  &:before {
+    bottom: 100%;
+    content: '';
+    padding-top: 100%;
+    position: absolute;
+    right: 100%;
+    transform: translate(50%, 0) rotate(-45deg) scale(20);
+    transform-origin: 50% 100%;
+    transition: $transition-base;
+    width: 100%;
+    z-index: -1;
+  }
+
+  @if $style == primary {
+    &:before {
+      background-color: $btn-primary;
+    }
+  } @else if $style == secondary {
+    &:before {
+      background-color: $btn-secondary;
+    }
+  }
+
+  @include on-event {
+    &:before {
+      bottom: -5%;
+      right: -5%;
+    }
+  }
+}
+
+// IF the button is on an input
+// Use a background gradient instead of the pseudo
+@mixin btn-gradient($style: primary) {
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: 300%;
+
+  @if $style == primary {
+    background-image: linear-gradient(135deg, $btn-primary 0%, $btn-primary 50%, transparent 50%, transparent 100%);
+  } @else if $style == secondary {
+    background-image: linear-gradient(135deg, $btn-secondary 0%, $btn-secondary 50%, transparent 50%, transparent 100%);
+  }
+
+  @include on-event {
+    background-position: 0;
+  }
+}
+
+// Apply the button style and hover target
+@mixin btn(
+  $style: primary,
+  $hover: gradient
+  ) {
+
+  @include btn-base($style);
+
+  @if $hover == pseudo {
+    @include btn-pseudo($style);
+  } @else if $hover == gradient {
+    @include btn-gradient($style);
+  }
+}

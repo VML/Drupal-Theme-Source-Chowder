@@ -30,8 +30,6 @@
   @include flex-x(flex, 0 1 auto);
   @include flex-x(flex-direction, $direction);
   @include flex-x(flex-wrap, wrap);
-  margin-right: rem(-$spacing-unit);
-  margin-left: rem(-$spacing-unit);
 }
 
 /** Grid row gutters
@@ -45,30 +43,30 @@
  * ELSE $gutter-horizontal-size & $gutter-vertical-size = default: regular sized space between items
  */
 @mixin grid-row-gutters(
-    $gutter-horizontal: true,
-    $gutter-horizontal-size: default,
-    $gutter-vertical: false,
-    $gutter-vertical-size: default
+  $gutter-horizontal: true,
+  $gutter-horizontal-size: default,
+  $gutter-vertical: false,
+  $gutter-vertical-size: default
   ) {
 
   // IF vertical gutters
   @if $gutter-vertical == true {
     @if $gutter-vertical-size == wide {
       > * {
-        margin-bottom: rem($spacing-unit * 2);
-        margin-top: rem($spacing-unit * 2);
+        margin-bottom: $gap-vertical-sm;
+        margin-top: $gap-vertical-sm;
       }
     } @else if $gutter-vertical-size == wide-large {
       > * {
         @include media('>=lg') {
-          margin-bottom: rem($spacing-unit * 2);
-          margin-top: rem($spacing-unit * 2);
+          margin-bottom: $gap-vertical-md;
+          margin-top: $gap-vertical-md;
         }
       }
     } @else if $gutter-vertical-size == narrow {
       > * {
-        margin-bottom: rem($spacing-unit / 2);
-        margin-top: rem($spacing-unit / 2);
+        margin-bottom: $gap-vertical-xsm;
+        margin-top: $gap-vertical-xsm;
       }
     } @else if $gutter-vertical-size == gapless {
       > * {
@@ -85,32 +83,32 @@
 
   @if $gutter-horizontal == true {
     @if $gutter-horizontal-size == wide {
-      margin-right: rem(-$spacing-unit * 2);
-      margin-left: rem(-$spacing-unit * 2);
+      margin-right: -$gap-horizontal-mid;
+      margin-left: -$gap-horizontal-mid;
 
       > * {
-        padding-right: rem($spacing-unit * 2);
-        padding-left: rem($spacing-unit * 2);
+        padding-right: $gap-horizontal-mid;
+        padding-left: $gap-horizontal-mid;
       }
     } @else if $gutter-horizontal-size == wide-large {
       @include media('>=lg') {
-        margin-right: rem(-$spacing-unit * 2);
-        margin-left: rem(-$spacing-unit * 2);
+        margin-right: -$gap-horizontal-lg;
+        margin-left: -$gap-horizontal-lg;
       }
 
       > * {
         @include media('>=lg') {
-          padding-right: rem($spacing-unit * 2);
-          padding-left: rem($spacing-unit * 2);
+          padding-right: $gap-horizontal-lg;
+          padding-left: $gap-horizontal-lg;
         }
       }
     } @else if $gutter-horizontal-size == narrow {
-      margin-right: rem(-$spacing-unit / 2);
-      margin-left: rem(-$spacing-unit / 2);
+      margin-right: -$gap-horizontal-md;
+      margin-left: -$gap-horizontal-md;
 
       > * {
-        padding-right: rem($spacing-unit / 2);
-        padding-left: rem($spacing-unit / 2);
+        padding-right: $gap-horizontal-md;
+        padding-left: $gap-horizontal-md;
       }
     } @else if $gutter-horizontal-size == gapless {
       margin-right: 0;
@@ -153,6 +151,33 @@
   }
 }
 
+/** Grid Spacing Clear
+ * Clears first and last grid row margin or padding
+ * Declare on column class: @include grid-clear-vertical-spacing(2);
+ * Options:
+ * • $columns(value = 1 to n) - default = 1
+ * • $property(value = margin or padding) - default = margin, sets to 0
+ */
+@mixin grid-clear-vertical-spacing ($columns: 1, $property: margin) {
+  @if $columns == 1 {
+    &:first-of-type {
+      #{$property}-top: 0;
+    }
+
+    &:last-of-type {
+      #{$property}-bottom: 0;
+    }
+  } @else {
+    &:nth-of-type(-n+#{$columns}) {
+      #{$property}-top: 0;
+    }
+
+    &:nth-of-type(#{$columns}n+1):nth-last-of-type(-n+#{$columns}),
+    &:nth-of-type(#{$columns}n+1):nth-last-of-type(-n+#{$columns}) ~ * {
+      #{$property}-bottom: 0;
+    }
+  }
+}
 
 /** Grid class generators
  * Generates classes for each column and offset by default and breakpoint

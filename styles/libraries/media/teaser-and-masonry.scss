@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+// -----------------------------------------------------------------------------
+// Libraries/Media: Teaser and Masonry
+// For shared styles
+// -----------------------------------------------------------------------------
+
+/**
+ * Globals
+ * An import of all abstracts
+ */
+@import '../../globals';
+
+/**
+ * Media Teaser, Masonry
+ */
+.media--view-mode-teaser,
+.media--view-mode-masonry {
+
+  @include media('<=sm') {
+    @include container-full-width;
+  }
+
+  img,
+  video {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}

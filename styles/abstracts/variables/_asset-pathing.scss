@@ -5,7 +5,7 @@
 // * file-name must be a string: ''
 // -----------------------------------------------------------------------------
 
+$path-base: '/themes/custom/vmlyrcom/';
 $path-image: '../../images/' !default;
-$path-icon: '../../icons/' !default;
+$path-icon: $path-base + 'icons/' !default;
 $path-font: '../../fonts/' !default;
-$path-base: '../../' !default;

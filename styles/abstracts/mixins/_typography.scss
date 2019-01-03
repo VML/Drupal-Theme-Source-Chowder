@@ -4,113 +4,81 @@
 // Place on elements as desired
 //
 // Options:
-// • $max-font(value = width) - largest font size
-// • $min-font(value = width) - smallest font size
-// • $family(value = variable) - font-family
-// • $weight(value = variable) - font-weight
-// • $letter(value = width) - letter-spacing
-// • $line(value = height) - line-height
-// • $transform(value = text-transform values) - text-transform
-// • $max-screen(value = width) - max screen width to stop fluid calc
-// • $min-screen(value = width) - min screen width to stop fluid calc
+// • $version(value = h1 - h6) - default = h1 - heading to apply styles to
+// • $color(value = light or dark) - default = dark - heading color
+// • $globals(value = included or excluded) - default = excluded - include the globals or just override
 //
 // === h1 === //
-// @include type-h1();
+// @include type-header(h1, dark, included);
 //
 // === h2 === //
-// @include type-h2();
+// @include type-header(h2, dark, included);
 //
 // === h3 === //
-// @include type-h4();
+// @include type-header(h3, dark, included);
 //
 // === h4 === //
-// @include type-h4();
+// @include type-header(h4, dark, included);
 //
 // === h5 === //
-// @include type-h5();
+// @include type-header(h5, dark, included);
 //
 // === h6 === //
-// @include type-h6();
-//
-// === paragraph plus === //
-// @include type-p-plus();
-//
-// === paragraph === //
-// @include type-p();
-//
-// === paragraph minus === //
-// @include type-p-minus();
-//
-// === type-base === //
-// base for all type mixins
-// * used only in this file
+// @include type-header(h6, dark, included);
 //
 // -----------------------------------------------------------------------------
 
-@mixin type-h1() {
-  @include get-typeset(h1);
-  @include setfont(brand, $fw-bold);
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-}
+@mixin type-header (
+  $version: h1,
+  $color: dark,
+  $globals: excluded) {
+  // Include if the globals only if explicitly included.
+  @if $globals == included {
+    letter-spacing: inherit;
+    line-height: 1.875;
+    margin: 0 0 0.3em;
+    padding: 0;
+    text-transform: uppercase;
+  }
 
-// === h2 === //
-@mixin type-h2() {
-  @include get-typeset(h2);
-  @include setfont(brand, $fw-bold);
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-}
+  @if $color == light {
+    color: setcolor(light);
+  } @else if $color == dark {
+    color: setcolor(dark);
+  }
 
-// === h3 === //
-@mixin type-h3() {
-  @include get-typeset(h3);
-  @include setfont(brand, $fw-bold);
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
+  @if $version == h1 {
+    @include get-typeset(h1);
+    @include setfont($font-brand);
+    font-weight: $fw-bold;
+    letter-spacing: -0.025em;
+    line-height: 0.9;
+  } @else if $version == h2 {
+    @include get-typeset(h2);
+    @include setfont($font-brand);
+    font-weight: $fw-bold;
+    letter-spacing: -0.025em;
+    line-height: 1.33;
+  } @else if $version == h3 {
+    @include get-typeset(h3);
+    @include setfont($font-brand);
+    font-weight: $fw-medium;
+    letter-spacing: 0;
+    line-height: 1.33;
+    text-transform: none;
+  } @else if $version == h4 {
+    @include get-typeset(h4);
+    font-weight: $fw-light;
+  } @else if $version == h5 {
+    @include get-typeset(h5);
+    @include setfont($font-brand);
+    font-weight: $fw-bold;
+    letter-spacing: 0.1em;
+    line-height: 1.55;
+  } @else if $version == h6 {
+    @include get-typeset(h6);
+    @include setfont($font-brand);
+    font-weight: $fw-bold;
+    letter-spacing: 0.2em;
+  }
 }
-
-// === h4 === //
-@mixin type-h4() {
-  @include get-typeset(h4);
-  @include setfont(brand, $fw-regular);
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-// === h5 === //
-@mixin type-h5() {
-  @include get-typeset(h5);
-  @include setfont(brand, $fw-regular);
-  letter-spacing: inherit;
-  line-height: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-// === p === //
-@mixin type-p() {
-  @include get-typeset(base);
-  @include setfont(default, $fw-regular);
-  font-weight: normal;
-  letter-spacing: inherit;
-  line-height: inherit;
-}
-
-// === p minus === //
-@mixin type-p-minus() {
-  @include get-typeset(sm);
-  @include setfont(default, $fw-regular);
-  font-weight: normal;
-  letter-spacing: inherit;
-  line-height: inherit;
-}
-

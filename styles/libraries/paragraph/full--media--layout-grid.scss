@@ -14,13 +14,40 @@
  * Component
  */
 .component-media--layout-grid {
-  .component-media__content {
-    @include flex();
-    @include flex-x(flex-wrap, wrap);
-    @include flex-x(justify-content, space-between);
+  outline: 1px solid red;
 
-    figure {
-      width: 48%;
+  .component-media__list {
+    @include grid-row();
+    @include grid-row-gutters(
+      $gutter-horizontal: false,
+      $gutter-vertical: true,
+      $gutter-vertical-size: wide
+    );
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media('>sm') {
+      @include grid-row-gutters(
+        $gutter-horizontal-size: wide,
+        $gutter-vertical: true,
+        $gutter-vertical-size: wide
+      );
+    }
+
+    .component-media__list-item {
+      @include grid-col(12);
+      @include grid-clear-vertical-spacing();
+
+      @include media('>=#{$bp-sm}', '<#{$bp-lg}') {
+        @include grid-col(6);
+        @include grid-clear-vertical-spacing(2);
+      }
+
+      @include media('>=#{$bp-lg}') {
+        @include grid-col(4);
+        @include grid-clear-vertical-spacing(3);
+      }
     }
   }
 }

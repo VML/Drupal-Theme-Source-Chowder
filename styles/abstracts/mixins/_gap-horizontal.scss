@@ -12,9 +12,9 @@
 
 @mixin gap-horizontal (
   $property: padding,
-  $breakpoint: md,
-  $gap-small: $gap-horizontal-sm,
-  $gap-large: $gap-horizontal-lg
+  $breakpoint: xl,
+  $gap-small: $gap-horizontal-md,
+  $gap-large: 0
   ) {
 
   #{$property}-left: $gap-small;

@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// Base: Button
+// This file contains the primary and secondary styles for buttons with animation
+// -----------------------------------------------------------------------------
+
+.btn--primary,
+.button--primary {
+  @include btn(primary);
+}
+
+.btn--secondary,
+.button--secondary {
+  @include btn(secondary);
+}
