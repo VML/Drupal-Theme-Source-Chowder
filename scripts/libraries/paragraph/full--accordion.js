@@ -33,19 +33,19 @@
 
           // Link tab to panel.
           $accordionHeader
-              .attr('aria-controls', panelId)
-              .attr('aria-selected', (openByDefault) ? 'true' : 'false')
-              .attr('id', headerId)
-              .attr('role', 'tab')
-              .attr('tabindex', (accordionIndex === 0) ? '0' : '-1');
+            .attr('aria-controls', panelId)
+            .attr('aria-selected', (openByDefault) ? 'true' : 'false')
+            .attr('id', headerId)
+            .attr('role', 'tab')
+            .attr('tabindex', (accordionIndex === 0) ? '0' : '-1');
 
           // Link panel to tab.
           $accordionContent
-              .attr('aria-hidden', (!openByDefault) ? 'true' : 'false')
-              .attr('aria-labelledby', headerId)
-              .attr('hidden', (!openByDefault))
-              .attr('id', panelId)
-              .attr('role', 'tabpanel');
+            .attr('aria-hidden', (!openByDefault) ? 'true' : 'false')
+            .attr('aria-labelledby', headerId)
+            .attr('hidden', (!openByDefault))
+            .attr('id', panelId)
+            .attr('role', 'tabpanel');
         });
 
         // Initialize the roving tabindex.
@@ -71,8 +71,8 @@
             $accordion.toggleClass('component-accordion-item--open', (!open));
             $accordionHeader.attr('aria-selected', (open) ? 'false' : 'true');
             $accordionContent
-                .attr('aria-hidden', (open) ? 'true' : 'false')
-                .attr('hidden', open);
+              .attr('aria-hidden', (open) ? 'true' : 'false')
+              .attr('hidden', open);
           }
         });
       });

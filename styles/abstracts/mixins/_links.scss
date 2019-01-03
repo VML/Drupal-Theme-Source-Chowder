@@ -58,9 +58,6 @@
       text-decoration: none;
     }
   } @else {
-    -webkit-text-underline-position: under;
-    -ms-text-underline-position: below;
-    text-underline-position: under;
     @if $version == full {
       text-decoration: underline;
     } @else if $version == hover {

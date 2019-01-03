@@ -38,7 +38,6 @@
     }
 
     .site-name {
-      @include type-h5();
       margin: 0 $gap-horizontal-sm;
     }
   }

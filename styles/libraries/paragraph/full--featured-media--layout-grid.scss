@@ -14,8 +14,6 @@
  * Component
  */
 .component-featured-media--layout-grid {
-  outline: 1px solid red;
-
   .component-featured-media__list {
     @include grid-row();
     @include grid-row-gutters(
