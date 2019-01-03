@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Node: Teaser
+// Libraries/Media: Teaser
 // -----------------------------------------------------------------------------
 
 /**
@@ -11,18 +11,14 @@
 @import '../../globals';
 
 /**
- * Node
+ * Component
  */
-.node--view-mode-teaser {
-  position: relative;
+.media--view-mode-teaser {
 
-  > .link-read-more {
-    @include trbl();
-    z-index: 1;
-  }
-
-  a {
-    position: relative;
-    z-index: 2;
+  img,
+  video {
+    display: block;
+    height: auto;
+    width: 100%;
   }
 }

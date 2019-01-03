@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Paragraph: media
+// Libraries/Paragraph: Featured Media
 // -----------------------------------------------------------------------------
 
 /**
@@ -13,8 +13,8 @@
 /**
  * Component
  */
-.component-media {
-  .component-media__content {
+.component-featured-media {
+  .component-featured-media__content {
     figure {
       display: block;
     }

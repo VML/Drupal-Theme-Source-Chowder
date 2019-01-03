@@ -12,34 +12,8 @@
 
 /**
  * Component
- * Base: 16px
  */
-
-.component-list-links.component-list-links--rotated-header {
-  @include flex();
-  @include flex-x(align-items, flex-start);
-
-  .component-list-links__title {
-    text-align: right;
-    writing-mode: vertical-lr;
-  }
-
-  .component-list-links__list {
-    margin: 0;
-    padding: 0 0 0 2em;
-
-    @include media('>=md') {
-      padding: 0 2em;
-    }
-  }
-}
-
 .component-list-links {
-  &:only-of-type {
-    @include gap-horizontal($gap-small: $gap-horizontal-sm, $gap-large: $gap-vertical-md);
-    @include gap-vertical();
-  }
-
   .component-list-links__title {
     @include type-header(h5, dark, included);
     text-transform: uppercase;

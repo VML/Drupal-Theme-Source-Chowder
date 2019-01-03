@@ -13,8 +13,8 @@
 /**
  * Component
  */
-.component-list-content--layout-masonry {
-  .component-list-content__list {
+.component-featured-content--layout-masonry {
+  .component-featured-content__list {
     display: block;
     list-style: none;
     margin: 0 auto;
@@ -38,7 +38,7 @@
     }
   }
 
-  .component-list-content__list-item {
+  .component-featured-content__list-item {
     margin-top: $gap-vertical-md;
 
     @include media('>md') {
@@ -68,7 +68,7 @@
   }
 
   @for $i from 1 through 16 {
-    .component-list-content__list-item--size-#{$i} {
+    .component-featured-content__list-item--size-#{$i} {
       grid-row-end: span $i;
     }
   }

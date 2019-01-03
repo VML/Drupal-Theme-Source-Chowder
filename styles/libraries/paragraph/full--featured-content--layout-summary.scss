@@ -14,8 +14,8 @@
  * Component
  */
 
-.component-list-content--layout-summary {
-  .component-list-content__list {
+.component-featured-content--layout-summary {
+  .component-featured-content__list {
     @include grid-row();
     @include grid-row-gutters(
       $gutter-horizontal: false,
@@ -26,7 +26,7 @@
     padding: 0;
   }
 
-  .component-list-content__list-item {
+  .component-featured-content__list-item {
     @include grid-col(12);
 
     @include media('>=md') {

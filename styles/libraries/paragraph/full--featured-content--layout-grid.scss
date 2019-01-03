@@ -13,9 +13,9 @@
 /**
  * Component
  */
-.component-list-content--layout-grid {
+.component-featured-content--layout-grid {
 
-  .component-list-content__list {
+  .component-featured-content__list {
     @include grid-row();
     @include grid-row-gutters(
       $gutter-horizontal: false,
@@ -26,7 +26,7 @@
     margin: 0;
     padding: 0;
 
-    @include media('>sm', '<=#{$bp-xl}') {
+    @include media('>sm', '<=xl') {
       @include grid-row-gutters(
         $gutter-horizontal-size: narrow,
         $gutter-vertical: true,
@@ -34,7 +34,7 @@
       );
     }
 
-    @include media('>#{$bp-xl}') {
+    @include media('>xl') {
       @include grid-row-gutters(
         $gutter-horizontal-size: wide,
         $gutter-vertical: true,
@@ -42,16 +42,16 @@
       );
     }
 
-    .component-list-content__list-item {
+    .component-featured-content__list-item {
       @include grid-col(12);
       @include grid-clear-vertical-spacing();
 
-      @include media('>=#{$bp-sm}', '<#{$bp-lg}') {
+      @include media('>=sm', '<lg') {
         @include grid-col(6);
         @include grid-clear-vertical-spacing(2);
       }
 
-      @include media('>=#{$bp-lg}') {
+      @include media('>=lg') {
         @include grid-col(4);
         @include grid-clear-vertical-spacing(3);
       }

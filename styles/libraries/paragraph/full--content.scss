@@ -40,4 +40,12 @@
       }
     }
   }
+
+  .component-content__footer:empty {
+    display: none;
+  }
+
+  .component-content__cta.button {
+    @include btn();
+  }
 }

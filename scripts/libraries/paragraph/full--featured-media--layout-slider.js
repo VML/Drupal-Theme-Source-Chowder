@@ -3,7 +3,7 @@
 
   Drupal.behaviors.componentMediaLayoutSlider = {
     attach: function (context, settings) {
-      $('.component-media--layout-slider .component-media__content').once('component-media').slick({
+      $('.component-featured-media--layout-slider .component-featured-media__content').once('component-featured-media').slick({
         adaptiveHeight: false,
         arrows: true,
         centerPadding: '0',

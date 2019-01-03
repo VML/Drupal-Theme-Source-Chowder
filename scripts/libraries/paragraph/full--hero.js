@@ -8,7 +8,7 @@
 
         // If more than one slide, initialize slick slider.
         if ($component.find('article').length > 1) {
-          $component.find('.component-hero__content').once('component-slider').slick({
+          $component.find('.component-hero__content').slick({
             adaptiveHeight: true,
             autoplay: false,
             autoplaySpeed: 5000,
@@ -21,7 +21,7 @@
         }
 
         // Track that this component has been initialized.
-        $component.addClass('.component-hero--js-initialized');
+        $component.addClass('component-hero--js-initialized');
       });
     }
   };

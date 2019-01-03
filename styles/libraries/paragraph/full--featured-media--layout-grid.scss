@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Paragraph: media layout grid
+// Libraries/Paragraph: Featured Media - Grid layout
 // -----------------------------------------------------------------------------
 
 /**
@@ -13,10 +13,10 @@
 /**
  * Component
  */
-.component-media--layout-grid {
+.component-featured-media--layout-grid {
   outline: 1px solid red;
 
-  .component-media__list {
+  .component-featured-media__list {
     @include grid-row();
     @include grid-row-gutters(
       $gutter-horizontal: false,
@@ -35,7 +35,7 @@
       );
     }
 
-    .component-media__list-item {
+    .component-featured-media__list-item {
       @include grid-col(12);
       @include grid-clear-vertical-spacing();
 

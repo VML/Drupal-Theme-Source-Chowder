@@ -23,12 +23,12 @@
 
         // Default to first item as selected.
         $tabs.attr('aria-selected', 'false')
-          .first()
-          .attr('tabindex', '0')
-          .attr('aria-selected', 'true');
+            .first()
+            .attr('tabindex', '0')
+            .attr('aria-selected', 'true');
         $panels.prop('hidden', true)
-          .first()
-          .prop('hidden', false);
+            .first()
+            .prop('hidden', false);
 
         // Label panel and mark that each is controlled by their respective tab.
         $tabs.each(function (tabIndex) {
@@ -42,12 +42,12 @@
 
           // Link tab to panel.
           $tab.attr('id', tabId)
-            .attr('aria-controls', panelId);
+              .attr('aria-controls', panelId);
 
           // Link panel to tab.
           $panels.eq(tabIndex)
-            .attr('id', panelId)
-            .attr('aria-labelledby', tabId);
+              .attr('id', panelId)
+              .attr('aria-labelledby', tabId);
 
         });
 

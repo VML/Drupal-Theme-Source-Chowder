@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Paragraph: media layout full
+// Libraries/Paragraph: Featured Media - Full layout
 // -----------------------------------------------------------------------------
 
 /**
@@ -13,8 +13,8 @@
 /**
  * Component
  */
-.component-media--layout-full {
-  .component-media__list {
+.component-featured-media--layout-full {
+  .component-featured-media__list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -35,8 +35,4 @@
     height: 100%;
     width: 100%;
   }
-}
-
-.component-media--layout-full.component-media--full-screen {
-  @include container-full-width();
 }

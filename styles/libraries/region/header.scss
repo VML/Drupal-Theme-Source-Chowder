@@ -1,8 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Region: header
-// Base layout for the header region.
+// Libraries/Region: Header
 // -----------------------------------------------------------------------------
 
 /**
@@ -12,407 +11,35 @@
 @import '../../globals';
 
 /**
- * Variables
- *
- */
-// @see '../../globals/abstracts/variables/_header'
-
-/**
  * Region
  */
 .region-header {
-  @include container-full-width;
-  @include trl($position: fixed);
+  @include gap-horizontal();
+  background-color: setcolor(medium, 40);
+  padding-bottom: $gap-vertical-sm;
+  padding-top: $gap-vertical-sm;
 
-  font-size: 1em;
-  padding-bottom: $header-padding-top-sm;
-  padding-top: $header-padding-top-sm;
-  transition: $transition-base;
-  z-index: 100;
-
-  @include media('>=md') {
-    padding-top: $header-padding-top;
-  }
-
-  // logo snowflake color change
-  .svg-logo__snowflake,
-  .svg-logo__name {
-    transition: $transition-base;
-  }
-
-  .svg-logo__snowflake {
-    color: setcolor(brand);
-  }
-
-  .svg-logo__name {
-    color: setcolor(dark);
-  }
-
-  a {
-    transition: $transition-base;
-  }
-
-  .region-header__inner {
-    @include container;
-    position: relative;
-    z-index: 2;
-  }
-
-  &:before {
-    @include trbl($position: absolute);
-    background-color: transparent;
-    content: '';
-    display: block;
-    height: $header-height-top-mobile;
-    left: 0;
-    top: 0;
-    transition: height $transition-base-time-style, background-color $transition-base-time-style;
-    width: 100%;
-    z-index: -1;
-
-    @include media('>=md') {
-      height: $header-height-top;
-    }
-  }
-
-  &:after {
-    background-color: setcolor(dark);
-    content: '';
-    height: 300vh;
-    left: -300%;
-    min-height: 300vw;
-    min-width: 300vw;
-    top: -300%;
-    pointer-events: none;
-    position: fixed;
-    transform-origin: top left;
-    transform: rotate(-45deg) translate(-50%, -50%);
-    transition: all 800ms ease-out;
-    width: 300vh;
-  }
-
-  .block-system-branding-block {
-    float: left;
-    line-height: 1;
-
-    .site-logo {
-      svg {
-        height: $header-logo-height-top-mobile;
-        display: block;
-        transition: $transition-base;
-        width: unset;
-
-        @include media('>=md') {
-          height: $header-logo-height-top;
-        }
-
-        @include bs-ie() {
-          // pulls the logo to the left to align the snowflake with the container edge
-          transform: translateX(-0.7em);
-        }
-      }
-
-      &:hover {
-        outline: none;
-      }
-    }
-  }
-
-  .block-system-menu-blockmain {
-    clear: both;
-    display: none;
-    max-height: 100vh;
-    overflow: visible;
-  }
-
-  .block-system-menu-blockmain__content {
-    @include gap-horizontal();
-    @include gap-vertical();
-    @include flex-x(flex, 1 1 100%);
-
-    animation-delay: 500ms;
-    animation-duration: 400ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-    animation-direction: reverse;
-    animation-name: menuContentFade;
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      transition: $transition-base;
-      transition-delay: $transition-base-time / 2;
-      z-index: 1;
-
-      li {
-        margin-top: 0;
-      }
-
-      a {
-        @include type-header(h2, light, included);
-        color: setcolor(light);
-        display: block;
-        position: relative;
-        text-decoration: none;
-        transition: all 150ms $transition-base-style;
-
-        &:before {
-          border-color: setcolor(brand) transparent transparent;
-          border-style: solid;
-          border-width: 0.75em 0.75em 0 0;
-          content: '';
-          height: 0;
-          left: -100%;
-          opacity: 0;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: all 300ms ease-out;
-          width: 0;
-        }
-
-        &:hover {
-          &:before {
-            left: -3rem;
-            opacity: 1;
-          }
-        }
-
-        &:focus {
-          color: setcolor(brand);
-        }
-      }
-    }
-  }
-
-  .block-system-menu-blockmain__button {
-    background: transparent;
-    border: 0;
-    display: block;
-    float: right;
-    margin: 0;
-    padding: 0;
-
-    svg {
-      display: block;
-      height: $header-logo-height-top-mobile;
-      transition: $transition-base;
-      width: unset;
-
-      @include media('>=md') {
-        height: $header-logo-height-top;
-      }
-
-      rect {
-        opacity: 1;
-        transform: translate(0, 0) rotate(0deg) scale(1);
-        transition: $transition-base;
-      }
-    }
-
-    &:hover {
-      svg {
-        -webkit-transform: scale(1.112);
-        transform: scale(1.112);
-      }
-    }
-
-    &:focus {
-      outline: 0;
-
-      svg {
-        outline: -webkit-focus-ring-color auto 2px;
-        outline: setcolor(brand) auto 2px;
-      }
-    }
-  }
-
-  .block-system-menu-blocksocial {
-    bottom: 0;
-    display: none;
-    position: absolute;
-    right: 0;
-    width: 3em;
-    z-index: 2;
-
-    & > ul {
-      animation-delay: 500ms;
-      animation-duration: 400ms;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: both;
-      animation-direction: reverse;
-      animation-name: menuContentFade;
-      font-size: 1.5em;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      a {
-        color: setcolor(light);
-        display: block;
-        line-height: 1;
-        overflow: hidden;
-        padding: .5em;
-        text-indent: -999em;
-
-        &:before {
-          display: block;
-          float: right;
-          text-indent: 0;
-        }
-
-        &:focus {
-          color: setcolor(brand);
-        }
-      }
-    }
-  }
-
-  // Styles for when the menu is open.
-  &.region-header--menu-open {
-    color: setcolor(light);
-    height: 100%;
+  .block-system-branding-block__content {
+    @include flex();
+    @include flex-x(align-items, center);
 
     a {
-      @include link(light);
-
-      &.is-active {
-        font-weight: $fw-bold;
-      }
+      @include link-base();
     }
 
-    &:after {
-      left: 50%;
-      top: 50%;
+    .site-logo,
+    .site-logo img {
+      font-size: 4rem;
+      height: 1em;
+      overflow: hidden;
+      width: 1em;
+      //opacity: 0;
+      //visibility: hidden;
     }
 
-    .block-system-branding-block {
-      .svg-logo__snowflake,
-      .svg-logo__name {
-        color: setcolor(light);
-      }
+    .site-name {
+      @include type-h5();
+      margin: 0 $gap-horizontal-sm;
     }
-
-    .block-system-menu-blockmain {
-      display: block;
-    }
-
-    .block-system-menu-blockmain__content {
-      animation-direction: normal;
-    }
-
-    .block-system-menu-blockmain__button {
-      svg {
-        &:focus {
-          outline: setcolor(brand) auto 2px;
-        }
-
-        rect {
-          fill: setcolor(light);
-        }
-
-        rect:nth-child(1) {
-          transform: translate(9%, -8%) rotate(45deg) scale(1.2);
-        }
-
-        rect:nth-child(2) {
-          opacity: 0;
-        }
-
-        rect:nth-child(3) {
-          transform: translate(-36%, 17%) rotate(-45deg) scale(1.2);
-        }
-      }
-
-      &:focus {
-        rect:nth-child(2) {
-          outline: none;
-        }
-      }
-    }
-
-    .block-system-menu-blocksocial {
-      display: block;
-
-      & > ul {
-        animation-direction: normal;
-      }
-    }
-  }
-}
-
-// Move navigation if toolbar is present and not fixed.
-body {
-
-  .page {
-    transition: all $transition-base-time-style;
-    margin-top: $header-height-top-mobile;
-
-    @include media('>=md') {
-      margin-top: $header-height-top;
-    }
-  }
-
-  &.header-fixed {
-    .page {
-      margin-top: $header-height-fixed;
-    }
-
-    .region-header {
-      padding-bottom: $header-padding-fixed;
-      padding-top: $header-padding-fixed;
-
-      &:before {
-        background-color: setcolor(light);
-        height: $header-height-fixed;
-      }
-
-      .block-system-branding-block .site-logo svg,
-      .block-system-menu-blockmain__button svg {
-        height: $header-logo-height-fixed-mobile;
-
-        @include media('>=md') {
-          height: $header-logo-height-fixed;
-        }
-      }
-
-      .block-system-branding-block .site-logo svg {
-        @include bs-ie() {
-          // pulls the logo to the left to align the snowflake with the container edge
-          transform: translateX(-2.2em);
-        }
-      }
-    }
-  }
-
-  &.toolbar-loading {
-    .region-header {
-      top: $admin-toolbar;
-    }
-  }
-
-  &.toolbar-fixed:not(.toolbar-loading) {
-    .region-header {
-      top: $admin-toolbar;
-      z-index: 100;
-    }
-
-    &.toolbar-horizontal.toolbar-tray-open .region-header {
-      top:  $admin-toolbar-and-tray-horizontal;
-    }
-  }
-
-}
-
-// Animation: Menu content fade in.
-@keyframes menuContentFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }

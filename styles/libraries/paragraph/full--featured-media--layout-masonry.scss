@@ -13,8 +13,8 @@
 /**
  * Component
  */
-.component-media--layout-masonry {
-  .component-media__list {
+.component-featured-media--layout-masonry {
+  .component-featured-media__list {
     // Flex fallback.
     @include flex();
     @include flex-x(flex-wrap, wrap);
@@ -44,7 +44,7 @@
     }
   }
 
-  .component-media__list-item {
+  .component-featured-media__list-item {
     flex: 1 1 14em;
     margin-bottom: 0;
 
@@ -59,7 +59,7 @@
   }
 
   @for $i from 1 through 16 {
-    .component-media__list-item--size-#{$i} {
+    .component-featured-media__list-item--size-#{$i} {
       grid-row-end: span $i;
     }
   }

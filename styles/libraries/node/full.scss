@@ -13,8 +13,6 @@
 /**
  * Component
  */
-
-// Basic pages - default spacing between components
 .node--view-mode-full .node__content {
   & > .paragraph-component {
     margin-top: $gap-vertical-mid;
@@ -24,41 +22,4 @@
     }
   }
 
-  // Person pages - contact section
-  .contact-info {
-    margin-top: $gap-vertical-mid;
-
-    .field--name-field-business-title {
-      @include type-header(h3, dark, included);
-    }
-
-    .social-link:before {
-      vertical-align: -0.1em;
-      margin-right: 0.25em;
-    }
-  }
-}
-
-
-// Landing pages - default spacing & border between components
-.page-node-type-landing {
-  .node--view-mode-full {
-    .node__content {
-      & > .paragraph-component {
-        border-top: 1px solid setcolor(medium, 40);
-        margin-top: $gap-vertical-mid;
-        padding-top: $gap-vertical-mid;
-
-        @include media('>=md') {
-          padding-top: $gap-vertical-md;
-          margin-top: $gap-vertical-md;
-        }
-
-        &:first-of-type {
-          border-top: 0 none;
-          padding-top: 0;
-        }
-      }
-    }
-  }
 }

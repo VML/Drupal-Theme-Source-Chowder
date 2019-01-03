@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Libraries/Paragraph: hero
+// Libraries/Paragraph: Featured Content
 // -----------------------------------------------------------------------------
 
 /**
@@ -13,19 +13,10 @@
 /**
  * Component
  */
-.component-hero {
-  @include container-full-width();
-
-  .component-hero__content {
-
-    &:not(.slick-initialized) {
-      .component-hero-slide {
-        display: none;
-
-        &:first-child {
-          display: block;
-        }
-      }
+.component-featured-content {
+  .component-featured-content__content {
+    article {
+      display: block;
     }
   }
 }
