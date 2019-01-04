@@ -15,8 +15,9 @@
  */
 .component-slider {
   .component-slider__content {
+    // Initial styles set.
     &:not(.slick-initialized) {
-      .component-media__list-item {
+      .component-slider-slide {
         display: none;
 
         &:first-child {
@@ -33,46 +34,87 @@
     position: relative;
     max-width: 100vw;
 
-    img,
-    video {
+    .field--name-field-image {
+      height: 100%;
+    }
+
+    .field--name-field-video {
+      height: 100%;
+
+      iframe {
+        height: 100%;
+
+        //@include mq-large('up') {
+        //  height: 460px;
+        //}
+      }
+    }
+
+    img {
       display: block;
       height: 100%;
       max-width: 100%;
-      object-fit: cover;
       width: 100%;
+      object-fit: cover;
+    }
+
+    .component-slider-slide__title {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .component-slider-slide__content {
+
+      &:empty {
+        display: none;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .component-slider-slide__figcaption {
+      bottom: 5vh;
+      color: setcolor(light);
+      position: absolute;
+      left: 5%;
+      z-index: 2;
+
+      .component-slider-slide-photo__title {
+
+        line-height: 1;
+        margin-bottom: 0;
+        text-shadow: 0 0 10px setcolor(dark);
+      }
+
+      .component-slider-slide-photo__content p {
+        font-size: 1rem;
+        text-shadow: 0 0 10px setcolor(dark);
+      }
     }
   }
-}
 
-.component-slider-slide-video,
-.component-slider-slide-photo {
-  @include media('>=md') {
-    margin-right: $gap-horizontal-mid;
-  }
+  .slick-slider {
 
-  figcaption {
-    @include container(
-      $width: $container-sm,
-      $align: left
-    );
-    margin-top: $gap-vertical-xsm;
+    .slick-track {
+      height: 80vh;
 
-    header {
-      @include type-header(
-        $version: h5,
-        $color: dark,
-        $globals: included
-      );
+      @include media('>=md') {
+        height: 60vh;
+      }
+
+      @include media('>=lg') {
+        height: auto;
+      }
     }
-  }
-}
 
-.component-slider-slide-video {
-  .field--name-field-video {
-    width: calc(100vw - (#{$gap-horizontal-md} * 2));
+    .slick-next {
+      right: 1rem;
+    }
 
-    @include media('>=md') {
-      width: calc(#{$container-md} - (#{$gap-horizontal-mid} * 2));
+    .slick-prev {
+      left: 1rem;
     }
   }
 }

@@ -34,10 +34,6 @@ input[type='submit'] {
 
 // form item groups
 .form-item {
-  @include flex();
-  @include flex-x(align-items, flex-start);
-  @include flex-x(flex-direction, column);
-
   .description {
     color: setcolor(medium, 40);
   }

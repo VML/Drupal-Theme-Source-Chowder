@@ -151,43 +151,8 @@ body.toolbar-loading .toolbar-tray {
   background: rgba(setcolor(light), 0.8);
 }
 
-.block-page-title-block {
-  .field--name-field-subtitle {
-    @include type-header(h3, dark, included);
-    margin-bottom: 0;
-  }
-
-  .block-page-title-block__content {
-    @include container($container-md, md, left, false);
-
-    // apply padding to the subtitle and body fields not the parent container
-    > .field--name-field-subtitle,
-    > .field--name-body {
-      padding-top: $gap-vertical-mid;
-    }
-
-    // if there is a subtitle remove the padding from the body field
-    > .field--name-field-subtitle + .field--name-body {
-      padding-top: 0;
-    }
-
-    // if the container and/or body fields are empty then hide them
-    &:empty,
-    > .field--name-body:empty {
-      display: none;
-    }
-  }
-}
-
-// classy to hide contact info
-.contact-info--hidden {
-  .field--name-field-email,
-  .field--name-field-phone,
-  .field--name-field-links-social {
-    display: none;
-  }
-}
-
+// Blazy styles.
+// @todo move these to be automatically attached with blazy styles.
 .b-error {
   opacity: 1;
 }

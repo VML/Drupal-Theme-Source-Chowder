@@ -24,76 +24,38 @@ $tabs-border-width: 0.0625rem;
       cursor: pointer;
       list-style: none;
       margin-bottom: 0;
-
-      @include media('<=sm') {
-        @include flex-x(flex-grow, 1);
-        @include flex-x(flex-basis, 0);
-        padding: 1em 0;
-      }
     }
   }
 
   // @todo need styles for non-js-initialized tabs.
   &.component-tabs--horizontal {
-
     & > .component-tabs__nav {
       @include flex();
-      position: relative;
-
-      @include media('>sm') {
-        &:before {
-          background-color: setcolor(medium, 20);
-          content: '';
-          height: 1px;
-          left: 2.75rem;
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 0;
-        }
-      }
 
       li {
-        background-color: setcolor(light);
-        background-image: linear-gradient(135deg, $btn-primary 0%, $btn-primary 50%, transparent 50%, transparent 100%);
-        background-position: 300% 0;
-        background-repeat: no-repeat;
-        background-size: 300%;
-        padding: 1em 0;
+        border: $tabs-border-width solid transparent;
+        padding: 1em;
         position: relative;
-        transition: all $transition-base-time * 1.5 $transition-base-style;
-        text-align: center;
 
-        @include media('>sm') {
-          padding: 1em 3em;
-        }
+        &[aria-selected='true'] {
+          border-color: setcolor(medium, 40);
+          border-bottom: 0 none;
 
-        a {
-          @include type-header(h6, dark, included);
-          color: setcolor(brand);
-        }
-
-        &[aria-selected='true'],
-        &:hover,
-        &:active,
-        &:focus {
-          background-position: 0;
-
-          a {
-            color: setcolor(light);
-            transition: $transition-base;
+          &:after {
+            @include trl();
+            background-color: setcolor(light);
+            content: '';
+            display: block;
+            height: $tabs-border-width;
+            top: 100%;
           }
-        }
-
-        &:focus {
-          outline: none;
         }
       }
     }
 
     & > .component-tabs__content {
-      margin-top: $gap-vertical-mid;
+      border: $tabs-border-width solid setcolor(medium, 40);
+      padding: 1em;
     }
   }
 }
