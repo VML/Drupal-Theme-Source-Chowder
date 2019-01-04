@@ -14,10 +14,13 @@
  * Region
  */
 .region-header {
-  @include gap-horizontal();
   background-color: setcolor(medium, 40);
   padding-bottom: $gap-vertical-sm;
   padding-top: $gap-vertical-sm;
+
+  .region-header__content {
+    @include gap-horizontal();
+  }
 
   .block-system-branding-block__content {
     @include flex();
@@ -29,12 +32,11 @@
 
     .site-logo,
     .site-logo img {
+      display: block;
       font-size: 4rem;
       height: 1em;
       overflow: hidden;
       width: 1em;
-      //opacity: 0;
-      //visibility: hidden;
     }
 
     .site-name {

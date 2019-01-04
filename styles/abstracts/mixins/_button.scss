@@ -13,23 +13,12 @@ $btn-secondary-hover: setcolor(dark);
 
 // Base button styles
 @mixin btn-base($style: primary) {
-  background: setcolor(brand);
-}
-// IF the button is on a div, button, or anchor
-// Use a pseudo for the background fill
-@mixin btn-pseudo($style: primary) {
-
+  background-color: setcolor(medium, 40);
 }
 
 // Apply the button style and hover target
 @mixin btn(
-  $style: primary,
-  $hover: gradient
+  $style: primary
   ) {
-
   @include btn-base($style);
-
-  @if $hover == pseudo {
-    @include btn-pseudo($style);
-  }
 }

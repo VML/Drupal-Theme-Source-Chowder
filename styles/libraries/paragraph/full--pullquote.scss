@@ -16,8 +16,7 @@
 .component-pullquote {
   @include container-full-width();
   @include gap-vertical(margin);
-  background: setcolor(dark);
-  color: setcolor(light);
+  background-color: setcolor(medium, 40);
   font-size: 1rem;
 
   .component-pullquote__footer,
