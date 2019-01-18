@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// Utilities: Icon Font
+// Print the font-face declaration and classes from the generated icon font
+// -----------------------------------------------------------------------------
+
+@include icon-font-face();
+
+@each $key, $name in $icons {
+  .icon-#{$key} {
+    @include icon($name);
+  }
+}
