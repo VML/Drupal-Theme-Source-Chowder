@@ -1,7 +1,8 @@
 // -----------------------------------------------------------------------------
-// Abstracts: Utilities
-// An import of all things Sass utilities
-// Utilities usually generate classes from maps
+// Utilities
+// A collection of items that generate classes for global usage
 // -----------------------------------------------------------------------------
 
-@import 'colors';
+@import
+'colors',
+'icon-font';

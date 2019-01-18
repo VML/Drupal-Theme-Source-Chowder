@@ -19,8 +19,13 @@ module.exports = {
   },
   iconFont: {
     src: [srcDir + 'icons/**/*.svg'],
+    scssTemplate: srcDir + 'styles/vendor/_icons-template.scss',
     scssFile: '../../../../../../source/' + srcDir + 'styles/vendor/_icons.scss',
     filePath: '/themes/custom/' + projectName + '/fonts/icons/',
     dest: destDir + 'fonts/icons'
+  },
+  fonts: {
+    src: [srcDir + 'fonts/**/*.ttf', srcDir + 'fonts/**/*.woff', srcDir + 'fonts/**/*.woff2', srcDir + 'fonts/**/*.otf'],
+    dest: destDir + 'fonts'
   }
 };
