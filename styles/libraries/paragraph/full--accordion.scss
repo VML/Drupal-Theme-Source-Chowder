@@ -15,14 +15,14 @@
  */
 .component-accordion {
   .component-accordion-item__title {
-    @include type-header(h4, dark, included);
+    @include type-preset(4);
     cursor: pointer;
     padding: 0.5em 0.5em 0.5em 1em;
-    text-transform: uppercase;
     position: relative;
+    text-transform: uppercase;
 
-    &:before {
-      color: setcolor(brand);
+    &::before {
+      color: $color-brand;
       content: '+';
       display: inline-block;
       margin-left: -1.5em;
@@ -32,13 +32,13 @@
 
     &:focus,
     &:hover {
-      color: setcolor(brand);
+      color: $color-brand;
     }
   }
 
   .component-accordion-item__content {
-    animation-duration: $transition-base-time * 2;
     animation-direction: alternate;
+    animation-duration: $transition-base-time * 2;
     animation-name: fadeIn;
     animation-timing-function: ease-in-out;
     padding: 0.5em 1em 1em;
@@ -55,7 +55,7 @@
   .component-accordion-item--open {
     & > .component-accordion-item__title {
 
-      &:before {
+      &::before {
         content: '\2013';
         transform: translateY(-1px);
       }

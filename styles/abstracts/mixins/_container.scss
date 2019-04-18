@@ -17,6 +17,7 @@
 ) {
 
   @include media('>#{$breakpoint}') {
+    // sass-lint:disable-block no-important
     max-width: $width;
     width: 100%;
 
@@ -59,4 +60,14 @@
     position: inherit;
     width: inherit;
   }
+}
+
+@mixin container-reset() {
+  // sass-lint:disable-block no-important
+  left: inherit;
+  margin-left: initial !important;
+  margin-right: initial !important;
+  max-width: inherit;
+  position: inherit;
+  width: inherit;
 }

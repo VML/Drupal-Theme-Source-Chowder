@@ -1,0 +1,85 @@
+// -----------------------------------------------------------------------------
+// Base: Utilities
+// Class generation for all scss maps
+// -----------------------------------------------------------------------------
+
+/**
+ * Utilities: Colors
+ * Print the color variables as text and bg classes
+ * $colors map @ abstracts/variables/colors
+ *
+ * Expected:
+ *  .color-*
+ *  .bg-*
+ */
+@each $key, $value in $colors {
+  // text
+  .color-#{$key} {
+    color: $value;
+  }
+
+  // background
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+/**
+ * Font weights
+ * Print the font weight variables as classes
+ * $font-weight-s map @ abstracts/variables/typography
+ *
+ * Expected:
+ *  .font-weight-*
+ */
+@each $key, $value in $font-weights {
+  .font-weight-#{$key} {
+    // sass-lint:disable-block no-important
+    // !important is for overriding set font-weights
+    font-weight: $value !important;
+  }
+}
+
+/**
+ * Font sizes
+ * Print the font size variables as classes
+ * $font-sizes map @ abstracts/variables/typography
+ *
+ * Expected:
+ *  .font-size-*
+ */
+@each $key, $value in $font-sizes {
+  .font-size-preset-#{$key} {
+    font-size: $value;
+  }
+
+  .type-preset-#{$key} {
+    @include type-preset($key, included);
+  }
+
+  .type-preset-#{$key}--margin {
+    @include type-margin-preset($key);
+  }
+}
+
+/**
+ * Utilities: Buttons
+ * Print the button style and size variables as btn classes
+ * For each style and each size
+ * lists @ abstracts/variables/buttons
+ *
+ * Expected:
+ *  .btn-$style-$size*
+ *  .btn-icon-$size*
+ */
+@each $style in $btn-styles {
+  @each $size in $btn-sizes {
+    .btn-#{$style}-#{$size} {
+      @include btn(
+        $style: $style,
+        $size: $size
+      );
+    }
+  }
+}
+

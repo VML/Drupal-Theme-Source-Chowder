@@ -30,7 +30,7 @@ $tabs-border-width: 0.0625rem;
   // @todo need styles for non-js-initialized tabs.
   &.component-tabs--horizontal {
     & > .component-tabs__nav {
-      @include flex();
+      display: flex;
 
       li {
         border: $tabs-border-width solid transparent;
@@ -38,12 +38,12 @@ $tabs-border-width: 0.0625rem;
         position: relative;
 
         &[aria-selected='true'] {
-          border-color: setcolor(medium, 40);
           border-bottom: 0 none;
+          border-color: $color-gray;
 
-          &:after {
+          &::after {
             @include trl();
-            background-color: setcolor(light);
+            background-color: $color-white;
             content: '';
             display: block;
             height: $tabs-border-width;
@@ -54,7 +54,7 @@ $tabs-border-width: 0.0625rem;
     }
 
     & > .component-tabs__content {
-      border: $tabs-border-width solid setcolor(medium, 40);
+      border: $tabs-border-width solid $color-gray;
       padding: 1em;
     }
   }

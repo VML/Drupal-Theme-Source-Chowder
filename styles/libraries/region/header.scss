@@ -14,7 +14,7 @@
  * Region
  */
 .region-header {
-  background-color: setcolor(medium, 40);
+  background-color: $color-gray;
   padding-bottom: $gap-vertical-sm;
   padding-top: $gap-vertical-sm;
 
@@ -23,8 +23,8 @@
   }
 
   .block-system-branding-block__content {
-    @include flex();
-    @include flex-x(align-items, center);
+    align-items: center;
+    display: flex;
 
     a {
       @include link-base();

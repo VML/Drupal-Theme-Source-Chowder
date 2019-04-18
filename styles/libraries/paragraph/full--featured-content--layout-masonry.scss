@@ -23,8 +23,9 @@
 
     @include media('>md') {
       // Flex fallback.
-      @include flex();
-      @include flex-x(flex-wrap, wrap);
+      display: flex;
+      flex-wrap: wrap;
+      // Frid
       display: grid;
       grid-auto-rows: minmax(2em, auto);
       grid-column-gap: 5em;
@@ -33,8 +34,8 @@
 
     @include media('>lg') {
       grid-auto-rows: minmax(7em, auto);
-      grid-template-columns: repeat(auto-fill, calc(50% - 3em));
       grid-column-gap: 6em;
+      grid-template-columns: repeat(auto-fill, calc(50% - 3em));
     }
   }
 

@@ -1,0 +1,14 @@
+// sass-lint:disable brace-style
+
+// -----------------------------------------------------------------------------
+// Abstracts/Functions: Math
+// File for various math functions
+// -----------------------------------------------------------------------------
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

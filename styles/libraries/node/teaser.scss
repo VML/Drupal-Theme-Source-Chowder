@@ -1,18 +1,28 @@
 @charset 'UTF-8';
 
 // -----------------------------------------------------------------------------
-// Styleguide
-// Laying out and applying styles to styleguide specific content
+// Libraries/Node: Teaser
 // -----------------------------------------------------------------------------
 
 /**
  * Globals
  * An import of all abstracts
  */
-@import 'globals';
+@import '../../globals';
 
 /**
- * Styleguide
- * An import of all things styleguide
+ * Node
  */
-@import 'styleguide/imports';
+.node--view-mode-teaser {
+  position: relative;
+
+  > .link-read-more {
+    @include trbl();
+    z-index: 1;
+  }
+
+  a {
+    position: relative;
+    z-index: 2;
+  }
+}

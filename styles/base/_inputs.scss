@@ -7,21 +7,21 @@
 input,
 textarea,
 select {
-  border: 0.125rem solid setcolor(medium, 40);
+  border: 0.125rem solid $color-gray;
   border-radius: 0;
-  color: setcolor(medium, 40);
+  color: $color-gray;
   max-width: 100%;
   outline: 0 none;
   padding: 0.5em 1em;
   transition: $transition-base;
 
   &:focus {
-    border-color: setcolor(dark);
-    color: setcolor(dark);
+    border-color: $color-black;
+    color: $color-black;
   }
 
   &:disabled {
-    background-color: setcolor(medium, 20);
+    background-color: $color-gray;
   }
 }
 
@@ -35,7 +35,7 @@ input[type='submit'] {
 // form item groups
 .form-item {
   .description {
-    color: setcolor(medium, 40);
+    color: $color-gray;
   }
 }
 

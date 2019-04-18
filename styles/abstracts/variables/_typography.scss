@@ -5,109 +5,78 @@
 
 /**
  * Root Font Sizing
+ * Top level and function variables
  */
 
 // <html> and <body> font sizes
-$html-font-size: 100% !default;
-$body-font-size: 16px !default;
-$body-line-height: 1.625 !default;
+$html-font-size: 100%;
+$body-font-size: 16px;
+$body-line-height: 1.625;
 
 // Functions
-$em-base-multiplyer: $body-font-size !default;
-$font-size-base-rem: $body-font-size !default;
+$em-base-multiplyer: $body-font-size;
+$font-size-base-rem: $body-font-size;
 
 /**
- * Type sets
- * Defines a type grouping that can be looped over and generate utility classes
+ * Font families
+ * Preferred and fallback font families
  */
-$type-sets: (
-  h1: (
-    base: (
-      font-size: em(42px)
-    ),
-    sm: (
-      font-size: 8vw
-    ),
-    xl: (
-      font-size: em(100px)
-    )
-  ),
-  h2: (
-    base: (
-      font-size: em(30px)
-    ),
-    md: (
-      font-size: em(40px)
-    )
-  ),
-  h3: (
-    base: (
-      font-size: em(20px)
-    ),
-    md: (
-      font-size: em(30px)
-    )
-  ),
-  h4: (
-    base: (
-      font-size: em(16px)
-    ),
-    md: (
-      font-size: em(20px)
-    )
-  ),
-  h5: (
-    base: (
-      font-size: em(16px)
-    )
-  ),
-  h6: (
-    base: (
-      font-size: em(14px)
-    )
-  ),
-  paragraph: (
-    base: (
-      font-size: em(14px)
-    ),
-    md: (
-      font-size: em(16px)
-    )
-  ),
-  quote: (
-    base: (
-      font-size: em(30px)
-    ),
-    md: (
-      font-size: em(36px)
-    )
-  ),
-  xs: (
-    base: (
-      font-size: 0.75em
-    )
-  ),
-  sm: (
-    base: (
-      font-size: 0.875em
-    )
-  ),
-  base: (
-    base: (
-      font-size: 1em
-    )
-  ),
-  lg: (
-    base: (
-      font-size: 1.125em
-    )
-  ),
-  xl: (
-    base: (
-      font-size: em(44px)
-    ),
-    sm: (
-      font-size: em(80px)
-    )
-  )
-) !default;
+$font-family-default: 'Arial', sans-serif !default;
+$font-family-brand: 'Times New Roman', 'Times', serif !default;
+$font-family-monospace: 'Lucida Sans Typewriter', 'Lucida Console', 'monaco', 'Bitstream Vera Sans Mono', monospace !default;
+
+/**
+ * Font Weights
+ * Names for commonly used font weights
+ */
+$font-weight-black: 900;
+$font-weight-extra-bold: 800;
+$font-weight-bold: 700;
+$font-weight-semi-bold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+$font-weights: (
+  black: $font-weight-black, // sass-lint:disable-line no-color-keywords
+  extra-bold: $font-weight-extra-bold,
+  bold: $font-weight-bold,
+  semi-bold: $font-weight-semi-bold,
+  medium: $font-weight-medium,
+  regular: $font-weight-regular,
+  light: $font-weight-light,
+);
+
+/**
+ * Font sizes
+ * Base and heading sizes
+ * BASE 16
+ */
+$font-size-preset-1: rem(44);
+$font-size-preset-2: rem(28);
+$font-size-preset-3: rem(22);
+$font-size-preset-4: rem(18);
+$font-size-preset-5: rem(16);
+$font-size-preset-6: rem(14);
+$font-size-preset-7: rem(12);
+$font-size-preset-8: rem(10);
+$font-size-preset-9: rem(8);
+
+$font-sizes: (
+  1: $font-size-preset-1,
+  2: $font-size-preset-2,
+  3: $font-size-preset-3,
+  4: $font-size-preset-4,
+  5: $font-size-preset-5,
+  6: $font-size-preset-6,
+  7: $font-size-preset-7,
+  8: $font-size-preset-8,
+  9: $font-size-preset-9
+);
+
+/**
+ * Random sizes
+ * Collection of things for mixins or classes
+ */
+$type-paragraph-container: 75ch;
+

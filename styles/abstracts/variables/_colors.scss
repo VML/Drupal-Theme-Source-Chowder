@@ -1,25 +1,45 @@
 // -----------------------------------------------------------------------------
 // Abstracts/Variables: Colors
 // Global colors and color map
+//
+// Colors variables are set up in a 2 tier system.
+// The first tier defines the specific color values.
+// The second tier defines the application of those colors.
 // -----------------------------------------------------------------------------
 
-$hex-brand: #0080FF !default;
+/**
+ * Tier 1: Color Values
+ * 1)  Color Values provide the specific hex colors. They are given a name
+ *     and number to display tints and shades of a color.
+ * 2)  These values should never be used directly. Instead use a second-tier applied color.
+ */
+$color-blue: #0050A9;
+$color-white: #FFFFFF;
+$color-gray: #91969B;
+$color-black: #000000;
 
+// Color Map
 $colors: (
-  light: (
-    base: #FFFFFF
-  ),
-  dark: (
-    base: #000000
-  ),
-  medium: (
-    base: #333333,
-    60: #999999,
-    40: #DDDDDD,
-    20: #EEEEEE
-  ),
-  brand: (
-    base: $hex-brand,
-    dark: darken($hex-brand, 10%)
-  )
-) !default;
+  'blue': $color-blue,
+  'white': $color-white,
+  'gray': $color-gray,
+  'black': $color-black,
+);
+
+/**
+ * Tier 2: Applied Colors
+ * Applied colors are descriptive of their use.
+ */
+
+// Brand
+$color-brand: $color-blue;
+
+// Text Colors
+$color-text: $color-black;
+$color-text-reverse: $color-white;
+
+// Link Colors
+$color-text-link: $color-brand;
+$color-text-link-hover: darken($color-text-link, 5%);
+$color-text-link-reverse: $color-white;
+$color-text-link-reverse-hover: darken($color-text-link-reverse, 5%);

@@ -26,10 +26,10 @@
  * Sets row up for the grid
  */
 @mixin grid-row($direction: row) {
-  @include flex();
-  @include flex-x(flex, 0 1 auto);
-  @include flex-x(flex-direction, $direction);
-  @include flex-x(flex-wrap, wrap);
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: $direction;
+  flex-wrap: wrap;
 }
 
 /** Grid row gutters
@@ -83,48 +83,48 @@
 
   @if $gutter-horizontal == true {
     @if $gutter-horizontal-size == wide {
-      margin-right: -$gap-horizontal-mid;
       margin-left: -$gap-horizontal-mid;
+      margin-right: -$gap-horizontal-mid;
 
       > * {
-        padding-right: $gap-horizontal-mid;
         padding-left: $gap-horizontal-mid;
+        padding-right: $gap-horizontal-mid;
       }
     } @else if $gutter-horizontal-size == wide-large {
       @include media('>=lg') {
-        margin-right: -$gap-horizontal-lg;
         margin-left: -$gap-horizontal-lg;
+        margin-right: -$gap-horizontal-lg;
       }
 
       > * {
         @include media('>=lg') {
-          padding-right: $gap-horizontal-lg;
           padding-left: $gap-horizontal-lg;
+          padding-right: $gap-horizontal-lg;
         }
       }
     } @else if $gutter-horizontal-size == narrow {
-      margin-right: -$gap-horizontal-md;
       margin-left: -$gap-horizontal-md;
+      margin-right: -$gap-horizontal-md;
 
       > * {
-        padding-right: $gap-horizontal-md;
         padding-left: $gap-horizontal-md;
+        padding-right: $gap-horizontal-md;
       }
     } @else if $gutter-horizontal-size == gapless {
-      margin-right: 0;
       margin-left: 0;
+      margin-right: 0;
 
       > * {
-        padding-right: 0;
         padding-left: 0;
+        padding-right: 0;
       }
     } @else {
-      margin-right: rem(-$spacing-unit);
       margin-left: rem(-$spacing-unit);
+      margin-right: rem(-$spacing-unit);
 
       > * {
-        padding-right: rem($spacing-unit);
         padding-left: rem($spacing-unit);
+        padding-right: rem($spacing-unit);
       }
     }
   }
@@ -137,15 +137,15 @@
  */
 @mixin grid-col($column-width: default) {
   @if $column-width == auto {
-    @include flex-x(flex-basis, 0);
-    @include flex-x(flex-grow, 1);
+    flex-basis: 0;
+    flex-grow: 1;
     max-width: 100%;
   } @else if $column-width == variable {
-    @include flex-x(flex, 0 0 auto);
-    width: auto;
+    flex: 0 0 auto;
     max-width: none;
+    width: auto;
   } @else {
-    @include flex-x(flex, 0 0 auto);
+    flex: 0 0 auto;
     flex-basis: ($column-width / $grid-columns) * 100%;
     max-width: ($column-width / $grid-columns) * 100%;
   }
@@ -196,21 +196,21 @@
   @each $breakpoint in map-keys($breakpoints) {
     @include media(#{'>=' + $breakpoint}) {
       .#{$breakpoint}\:col-auto {
-        @include flex-x(flex-basis, 0);
-        @include flex-x(flex-grow, 1);
+        flex-basis: 0;
+        flex-grow: 1;
         max-width: 100%;
       }
 
       .#{$breakpoint}\:col-variable {
-        @include flex-x(flex, 0 0 auto);
-        width: auto;
+        flex: 0 0 auto;
         max-width: none;
+        width: auto;
       }
 
       @each $i in $columns {
         @for $n from 1 through $i {
           .#{$breakpoint}\:col-#{$n} {
-            @include flex-x(flex-basis, ($n / $i) * 100%);
+            flex-basis: ($n / $i) * 100%;
             max-width: ($n / $i) * 100%;
           }
         }

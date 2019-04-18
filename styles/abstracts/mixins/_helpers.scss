@@ -22,13 +22,29 @@
  * Shamelessly borrowed from HTML5Boilerplate:
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
-@mixin visually-hidden() {
+@mixin visually-hidden($position: absolute) {
+  // sass-lint:disable-block property-units
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
-  margin: -1px;
+  margin: -1px 0 0 -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
   width: 1px;
+
+  @if $position == absolute {
+    position: absolute;
+  }
+}
+
+/**
+ * Reset List
+ * Removes default list styles from <ul>, <ol>
+ * Most reused styles between menus as we don't often show the default list
+ * style, margin, or padding.
+ */
+@mixin list-reset() {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

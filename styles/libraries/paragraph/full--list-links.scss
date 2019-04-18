@@ -15,7 +15,7 @@
  */
 .component-list-links {
   .component-list-links__title {
-    @include type-header(h5, dark, included);
+    @include type-preset(5);
     text-transform: uppercase;
   }
 
@@ -33,16 +33,16 @@
     @include icon(chevron, after);
     hyphens: auto;
 
-    &:after {
-      color: setcolor(brand);
+    &::after {
+      color: $color-brand;
       font-size: 0.75em;
       margin-left: 0.25em;
       transition: $transition-base;
       transition-delay: $transition-base-time / 2;
     }
 
-    &:hover:after {
-      color: setcolor(dark);
+    &:hover::after {
+      color: $color-text;
     }
   }
 }

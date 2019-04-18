@@ -1,24 +1,95 @@
 // -----------------------------------------------------------------------------
 // Abstracts/Mixin: Button Styles
 // Base button style mixin
-// @include btn-base(), @include btn(primary, secondary)
+// @include btn($style, $size)
 // -----------------------------------------------------------------------------
 
+/**
+* Button Reset
+* Resets <a>, <button>, <input type="submit"> styles to build custom styling
+* @include btn-reset();
+*/
+@mixin btn-reset() {
+  background-color: transparent;
+  border: 0 none;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: inherit;
+  hyphens: auto;
+  line-height: normal;
+  margin: 0;
+  text-decoration: none;
+  text-transform: none;
+  transition: inherit;
+  user-select: none;
+  white-space: normal;
 
-$btn-primary: setcolor(dark);
-$btn-primary-hover: setcolor(light);
-
-$btn-secondary: setcolor(light);
-$btn-secondary-hover: setcolor(dark);
-
-// Base button styles
-@mixin btn-base($style: primary) {
-  background-color: setcolor(medium, 40);
+  @include on-event() {
+    font-style: normal;
+    text-decoration: none;
+  }
 }
 
-// Apply the button style and hover target
-@mixin btn(
-  $style: primary
-  ) {
-  @include btn-base($style);
+/**
+* Button Disabled
+* @include btn-disabled();
+*/
+@mixin btn-disabled($bg) {
+
+  &.btn--disabled {
+    color: rgba($color-text, 0.4);
+    pointer-events: none;
+
+    @if $bg == true {
+      background-color: $color-gray;
+    }
+  }
 }
+
+/**
+* Base button styles
+* Common styles for all button types
+* @include btn-base();
+*/
+@mixin btn($style: primary, $size: regular) {
+  @include btn-reset();
+  cursor: pointer;
+  display: inline-block;
+  font-weight: $font-weight-bold;
+  overflow: hidden;
+  position: relative;
+
+  // button sizes ------------------------------------------------------------------
+  @if $size == regular {
+    font-size: $font-size-preset-6;
+    padding: em(13) em(12); // equivalent to height 2.5rem
+  } @else if $size == small {
+    font-size: $font-size-preset-7;
+    padding: em(10) em(12); // equivalent to height 2rem
+  }
+
+  // button instances and states ---------------------------------------------------
+  @if $style == primary {
+    @include btn-disabled($bg: true);
+    background-color: $color-brand;
+    color: $color-text-reverse;
+
+    @include on-event() {
+      background-color: darken($color-blue, 5%);
+    }
+  }
+
+  @if $style == secondary {
+    @include btn-disabled($bg: false);
+    background-color: transparent;
+    border-color: $color-gray;
+    color: $color-text;
+
+    @include on-event() {
+      border-color: darken($color-blue, 5%);
+    }
+  }
+}
+

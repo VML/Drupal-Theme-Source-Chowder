@@ -17,11 +17,11 @@ html {
 }
 
 body {
-  @include get-typeset(paragraph);
-  @include setfont($font-default);
-  background-color: $body-bg-color;
-  color: setcolor(dark);
-  font-weight: $fw-medium;
+  background-color: $color-white;
+  color: $color-black;
+  font-family: $font-family-default;
+  font-size: $body-font-size;
+  font-weight: $font-weight-medium;
   line-height: $body-line-height;
   overflow-x: hidden;
 }
@@ -72,13 +72,13 @@ thead:focus {
  * Basic body styles
  */
 ::-moz-selection {
-  background: setcolor(brand);
-  color: setcolor(brand);
+  background: $color-black;
+  color: $color-white;
 }
 
 ::selection {
-  background: setcolor(brand);
-  color: setcolor(brand);
+  background: $color-black;
+  color: $color-white;
 }
 
 main {
@@ -98,8 +98,8 @@ main {
 
 // flex on the parent regions wrapper to always keep the footer at the bottom
 .page {
-  @include flex();
-  @include flex-x(flex-direction, column);
+  display: flex;
+  flex-direction: column;
 
   @include bs-ie() {
     display: block;
@@ -116,64 +116,4 @@ img {
 figure {
   margin: 0;
   padding: 0;
-}
-
-// Drupal Toolbar fixes.
-body.toolbar-loading {
-  padding-top: $admin-toolbar;
-
-  .toolbar {
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .toolbar-tray {
-    display: none !important;
-  }
-}
-
-// Make tablet toolbar hover over page instead of pushing all content over.
-body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
-  margin-left: 0 !important;
-}
-
-// Fix to make tool tray un-"fixed" if toolbar is loading.
-body.toolbar-loading .toolbar-tray {
-  display: none;
-}
-
-// Add background to node-preview container.
-.node-preview-container {
-  background: setcolor(light);
-  background: rgba(setcolor(light), 0.8);
-}
-
-// Blazy styles.
-// @todo move these to be automatically attached with blazy styles.
-.b-error {
-  opacity: 1;
-}
-
-.media--blazy.media--loading::before {
-  -webkit-animation: blazyLoading 2s infinite ease;
-  animation: blazyLoading 2s infinite ease;
-  background: url(asset-path('icon', 'icon-32x32.png'));
-  background-size: contain;
-  filter: blur(.1em);
-  opacity: .7;
-}
-
-@keyframes blazyLoading {
-  0%,
-  30% {
-    transform: rotate(0deg);
-  }
-
-  70%,
-  100% {
-    transform: rotate(360deg);
-  }
 }

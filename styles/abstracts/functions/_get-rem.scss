@@ -1,4 +1,4 @@
-// sass-lint:disable brace-style
+// sass-lint:disable brace-style zero-unit
 
 // -----------------------------------------------------------------------------
 // Abstracts/Functions: Get rems
@@ -6,7 +6,7 @@
 //
 // Options:
 // • $unit-values(value = number or variable) - Unit values. Can be single, mix, or group of 3 or 4.
-// • $base-size(value = number or variable, default = $font-size-base-rem) - Set unit base, or defaults to defined value in settings.
+// • $base-size(value = number or variable, default = $body-font-size) - Set unit base, or defaults to defined value in settings.
 //
 // Usage:
 // • Use with single or multiple units
@@ -16,31 +16,33 @@
 //   font-size: rem(20px, 10px);
 // -----------------------------------------------------------------------------
 
-@function rem($unit-values, $base-size: $font-size-base-rem) {
+@function rem($unit-value, $base-size: $body-font-size) {
+  // Check to see if value is 0, auto, or inherited
+  // If so, do nothing and output value
+  @if $unit-value == 0 or $unit-value == auto or $unit-value == inherit {
+    @return $unit-value;
+  }
+  // If the value is a pixel, convert to rem value
+  @else if unit($unit-value) == 'px' {
+    @return ($unit-value / $base-size) + 0rem;
+  }
+
+  // If the value is unitless, assume it is a px value and convert to rem value
+  @else if unitless($unit-value) {
+    @return ($unit-value / strip-unit($base-size)) + 0rem;
+  }
+  // For everything else, keep as is
+  @else {
+    @return $unit-value;
+  }
+}
+
+@function rem-multiple($unit-values, $base-size: $body-font-size) {
   // Create an empty list that we can dump values into
   $rem-values: ();
 
   @each $value in $unit-values {
-    // Check to see if value is 0, auto, or inherited
-    // If so, do nothing and output value
-    @if $value == 0 or $value == auto or $value == inherit {
-      $rem-values: append($rem-values, $value);
-    }
-
-    // If the value is a pixel, convert to rem value
-    @else if unit($value) == 'px' {
-      $rem-values: append($rem-values, #{($value/$base-size)}rem);
-    }
-
-    // If the value is unitless, assume it is a px value and convert to rem value
-    @else if unitless($value) {
-      $rem-values: append($rem-values, #{($value/stripped-unit($base-size))}rem);
-    }
-
-    // For everything else, keep as is
-    @else {
-      $rem-values: append($rem-values, $value);
-    }
+    $rem-values: append($rem-values, rem($value, $base-size));
   }
 
   @return $rem-values;

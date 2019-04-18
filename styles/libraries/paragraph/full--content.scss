@@ -24,11 +24,7 @@
   }
 
   .component-content__title {
-    @include type-header(
-      $version: h5,
-      $color: dark,
-      $globals: included
-    );
+    @include type-preset(5);
   }
 
   .component-content__content {

@@ -18,7 +18,8 @@
   $gap-small: $gap-vertical-sm,
   $gap-large: $gap-vertical-md,
   $reset: false,
-  $negative: false) {
+  $negative: false
+) {
 
   // base
   #{$property}-top: $gap-small;
@@ -40,14 +41,14 @@
 
   // negative
   @if $negative == true {
-    margin-top: -$gap-small;
     #{$property}-top: inherit;
     #{$property}-top: initial;
+    margin-top: -$gap-small;
 
     @include media('>#{$breakpoint}') {
-      margin-top: -$gap-large;
       #{$property}-top: inherit;
       #{$property}-top: initial;
+      margin-top: -$gap-large;
     }
   }
 }

@@ -1,74 +1,82 @@
-@font-face {
-	font-family: "themeIcons";
-	src: url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.eot');
-	src: url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.eot?#iefix') format('eot'),
-		url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.woff2') format('woff2'),
-		url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.woff') format('woff'),
-		url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.ttf') format('truetype'),
-		url('/themes/custom/vmlyrcom/fonts/icons/themeIcons.svg#themeIcons') format('svg');
+// -----------------------------------------------------------------------------
+// Vendor: Icons template & icons
+// Template
+//  • used by the build.iconFont task in the gulpfile
+//  • the task generates the icon font font-face, mixins, function, and classes
+// Compiled
+//  • for use in vendor/_icons.scss
+//  • the font-face declaration and classes are included in the main.scss file
+// -----------------------------------------------------------------------------
+
+@mixin icon-font-face() {
+  @font-face {
+    font-family: "themeIcons";
+    src: url('themes/custom/denim/fonts/iconsthemeIcons.eot');
+    src: url('themes/custom/denim/fonts/iconsthemeIcons.ttf') format('truetype'),
+    url('themes/custom/denim/fonts/iconsthemeIcons.eot?#iefix') format('eot'),
+    url('themes/custom/denim/fonts/iconsthemeIcons.woff') format('woff');
+  }
 }
 
 @mixin icon-styles {
-	font-family: "themeIcons";
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
-	text-decoration: none;
-	text-transform: none;
+  font-family: "themeIcons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  text-decoration: none;
+  text-transform: none;
 }
 
 %icon {
-	@include icon-styles;
+  @include icon-styles;
 }
 
 @function icon-char($filename) {
-	$char: "";
+  $char: "";
 
-	@if $filename == chevron {
-		$char: "\E001";
-	}
-	@if $filename == facebook {
-		$char: "\E002";
-	}
-	@if $filename == instagram {
-		$char: "\E003";
-	}
-	@if $filename == linkedin {
-		$char: "\E004";
-	}
-	@if $filename == twitter {
-		$char: "\E005";
-	}
+  @if $filename == chevron {
+  $char: "\E001";
+}
+  @if $filename == facebook {
+  $char: "\E002";
+}
+  @if $filename == instagram {
+  $char: "\E003";
+}
+  @if $filename == linkedin {
+  $char: "\E004";
+}
+  @if $filename == twitter {
+  $char: "\E005";
+}
 
-	@return $char;
+@return $char;
 }
 
 @mixin icon($filename, $insert: before, $extend: true) {
-	&:#{$insert} {
-		@if $extend {
-			@extend %icon;
-		} @else {
-			@include icon-styles;
-		}
-		content: icon-char($filename);
-	}
+&:#{$insert} {
+  @if $extend {
+    @extend %icon;
+  } @else {
+    @include icon-styles;
+  }
+  content: icon-char($filename);
+}
 }
 
-.icon-chevron {
-	@include icon(chevron);
-}
-.icon-facebook {
-	@include icon(facebook);
-}
-.icon-instagram {
-	@include icon(instagram);
-}
-.icon-linkedin {
-	@include icon(linkedin);
-}
-.icon-twitter {
-	@include icon(twitter);
-}
+$icons: (
+
+chevron: chevron,
+
+facebook: facebook,
+
+instagram: instagram,
+
+linkedin: linkedin,
+
+twitter: twitter,
+
+);

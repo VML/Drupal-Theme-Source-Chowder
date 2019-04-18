@@ -12,18 +12,16 @@
 // • Use with a base unit size
 //   font-size: em(20px, 12px);
 // -----------------------------------------------------------------------------
+@import '../variables/typography';
 
-// Base unit multiplyer for em conversion
-$base-multiplyer-em: 16px !default;
-
-@function em($pixels, $context: $base-multiplyer-em) {
-  @if (unitless($pixels)) {
-    $pixels: $pixels * 1px;
+@function em($unit-value, $base-size: $body-font-size) {
+  @if (unitless($unit-value)) {
+    $unit-value: $unit-value * 1px;
   }
 
-  @if (unitless($context)) {
-    $context: $context * 1px;
+  @if (unitless($base-size)) {
+    $context: $base-size * 1px;
   }
 
-  @return $pixels / $context * 1em;
+  @return $unit-value / $base-size * 1em;
 }

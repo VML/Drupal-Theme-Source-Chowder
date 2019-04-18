@@ -2,6 +2,7 @@
 
 // -----------------------------------------------------------------------------
 // Libraries/Media: Teaser
+// Teaser media
 // -----------------------------------------------------------------------------
 
 /**
@@ -11,10 +12,9 @@
 @import '../../globals';
 
 /**
- * Component
+ * Media Teaser
  */
 .media--view-mode-teaser {
-
   img,
   video {
     display: block;

@@ -16,13 +16,13 @@
 .component-featured-media--layout-masonry {
   .component-featured-media__list {
     // Flex fallback.
-    @include flex();
-    @include flex-x(flex-wrap, wrap);
-
+    display: flex;
+    flex-wrap: wrap;
+    // Grid
     display: grid;
     grid-auto-rows: minmax(2em, auto);
-    grid-template-columns: repeat(auto-fill, calc(50% - 2em));
     grid-column-gap: 4em;
+    grid-template-columns: repeat(auto-fill, calc(50% - 2em));
     list-style: none;
     margin: 0 auto;
     max-width: 100%;
@@ -39,8 +39,8 @@
 
     @include media('>lg') {
       grid-auto-rows: minmax(7em, auto);
-      grid-template-columns: repeat(auto-fill, calc(50% - 3em));
       grid-column-gap: 6em;
+      grid-template-columns: repeat(auto-fill, calc(50% - 3em));
     }
   }
 

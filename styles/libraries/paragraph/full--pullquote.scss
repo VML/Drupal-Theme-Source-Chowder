@@ -16,20 +16,20 @@
 .component-pullquote {
   @include container-full-width();
   @include gap-vertical(margin);
-  background-color: setcolor(medium, 40);
+  background-color: $color-gray;
   font-size: 1rem;
 
   .component-pullquote__footer,
   .component-pullquote__content {
-    @include type-header(h4, light, included);
+    @include type-preset(4);
     @include container($container-lg);
     @include gap-horizontal();
     text-transform: none;
   }
 
   .component-pullquote__content {
-    text-align: center;
     padding-top: $gap-vertical-md;
+    text-align: center;
   }
 
   .component-pullquote__footer {
@@ -41,7 +41,7 @@
       display: inline-block;
       padding-left: 1.5em;
 
-      &:before {
+      &::before {
         content: '\2013';
         display: inline-block;
         margin-left: -1.5em;

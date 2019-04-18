@@ -3,12 +3,12 @@
 // Site default breakpoint widths
 // -----------------------------------------------------------------------------
 
-$bp-xs: em(480) !default;
-$bp-sm: em(568) !default;
-$bp-md: em(768) !default;
-$bp-lg: em(980) !default;
-$bp-xl: em(1280) !default;
-$bp-gr: em(1450) !default;
+$bp-xs: em(480);
+$bp-sm: em(568);
+$bp-md: em(768);
+$bp-lg: em(980);
+$bp-xl: em(1280);
+$bp-gr: em(1450);
 
 // Map
 $breakpoints: (

@@ -17,65 +17,37 @@
 // • $underline(value = null | none | hover | full) - default = null - Whether the underline version should be declared, and if so, which version.
 // -----------------------------------------------------------------------------
 
-
-@mixin link-base ($style: dark) {
-  $color: setcolor(dark);
-  $hover-color: setcolor(brand);
-  $hover-weight: null;
+@mixin link-base ($style: default) {
+  $color: $color-text-link;
+  $hover-color: $color-text-link-hover;
 
   // Light overrides.
-  @if $style == light {
-    $color: setcolor(light);
-    $hover-color: setcolor(light);
-    $hover-weight: $fw-bold;
+  @if $style == reverse {
+    $color: $color-text-link-reverse;
+    $hover-color: $color-text-link-reverse-hover;
   }
 
   color: $color;
   text-decoration: none;
   transition: $transition-base;
 
-  &:hover,
+  &:hover {
+    color: $hover-color;
+    text-decoration: underline;
+  }
+
   &:focus,
   &:active,
+  &:visited,
   &.is-active {
     color: $hover-color;
     outline: none;
-
-    @if $hover-weight != null {
-      font-weight: $hover-weight;
-    }
-  }
-
-  &:active,
-  &.is-active {
-    font-weight: $fw-medium;
   }
 }
 
-@mixin link-underline($version: hover) {
-  @if $version == none {
-    @include on-event() {
-      text-decoration: none;
-    }
-  } @else {
-    @if $version == full {
-      text-decoration: underline;
-    } @else if $version == hover {
-      text-decoration: none;
-      @include on-event() {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-@mixin link ($style: base, $underline: null) {
+@mixin link ($style: base) {
   // If style is explicitly stated, include it. Otherwise don't do anything since base is already set on page.
   @if $style != base {
     @include link-base($style);
-  }
-
-  @if $underline != null {
-    @include link-underline($underline);
   }
 }

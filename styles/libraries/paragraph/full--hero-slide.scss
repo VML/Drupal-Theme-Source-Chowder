@@ -15,8 +15,9 @@
  */
 .component-hero-slide,
 .component-hero-slide.slick-slide {
+  // sass-lint:disable-block no-important
   // The "!important" tags are set to override slick-slider styles.
-  @include flex();
+  display: flex;
   height: $component-hero-title-height;
   max-height: $component-hero-title-height-max;
   min-height: $component-hero-title-height-min;
@@ -90,21 +91,21 @@
 
   .component-hero-slide__inner {
     @include container();
-    @include flex();
-    @include flex-x(flex-direction, column);
-    @include flex-x(justify-content, center);
-    position: relative;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    justify-content: center;
+    position: relative;
     z-index: 1;
   }
 }
 
 // default slide content
 .component-hero-slide {
-  background-color: setcolor(dark);
+  background-color: $color-black;
 
   .component-hero-slide__inner {
-    color: setcolor(light);
+    color: $color-text-reverse;
     padding: 0 15vw;
 
     @include media('>=lg') {
@@ -118,13 +119,13 @@
 
   .component-hero-slide__title {
     .component-hero-slide__title-super {
-      @include type-header(h3, light, included);
+      @include type-preset(3);
       display: block;
       margin: 0;
     }
 
     .component-hero-slide__title-main {
-      @include type-header(h1, light, included);
+      @include type-preset(1);
       display: block;
       margin: 0;
     }
@@ -157,7 +158,7 @@
   .component-hero-slide__title .component-hero-slide__title-super,
   .component-hero-slide__title .component-hero-slide__title-main,
   .component-hero-slide__inner {
-    color: setcolor(light);
+    color: $color-text-reverse;
   }
 
   .component-hero-slide__link {
@@ -173,7 +174,7 @@
   .component-hero-slide__title .component-hero-slide__title-super,
   .component-hero-slide__title .component-hero-slide__title-main,
   .component-hero-slide__inner {
-    color: setcolor(dark);
+    color: $color-text;
   }
 
   .component-hero-slide__link {
